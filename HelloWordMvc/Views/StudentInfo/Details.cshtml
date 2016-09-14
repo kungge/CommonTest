@@ -1,0 +1,43 @@
+﻿@model HelloWordMvc.Models.StudentInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>StudentInfo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StudentId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StudentId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StudentName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StudentName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StudentAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StudentAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassInfo.ClassName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassInfo.ClassName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.StudentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

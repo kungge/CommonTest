@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+@model HelloWordMvc.Models.PersonInfo
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    @ViewBag.Message
+    @ViewData["mylover"]
+    @ViewData.Model.PersonName
+    @Model.PersonAge
+    </div>
+</body>
+</html>

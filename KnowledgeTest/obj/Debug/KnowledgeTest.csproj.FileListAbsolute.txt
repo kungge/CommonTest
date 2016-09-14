@@ -1,0 +1,6 @@
+E:\WorkFiles\studyfiles\mypro\CommonTest\KnowledgeTest\bin\KnowledgeTest.dll.config
+E:\WorkFiles\studyfiles\mypro\CommonTest\KnowledgeTest\bin\KnowledgeTest.dll
+E:\WorkFiles\studyfiles\mypro\CommonTest\KnowledgeTest\bin\KnowledgeTest.pdb
+E:\WorkFiles\studyfiles\mypro\CommonTest\KnowledgeTest\obj\Debug\KnowledgeTest.csprojResolveAssemblyReference.cache
+E:\WorkFiles\studyfiles\mypro\CommonTest\KnowledgeTest\obj\Debug\KnowledgeTest.dll
+E:\WorkFiles\studyfiles\mypro\CommonTest\KnowledgeTest\obj\Debug\KnowledgeTest.pdb

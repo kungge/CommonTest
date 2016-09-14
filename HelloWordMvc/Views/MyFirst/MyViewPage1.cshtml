@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+@model HelloWordMvc.Models.StudentInfo
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyViewPage1</title>
+</head>
+<body>
+    <div>
+    @ViewBag.Message
+    @ViewData["mylover"]
+    @{
+        string str1 = "我是在@{}里的内容";
+    }
+    @str1
+        <br />
+        @str1<span>这是span内容</span>看我前面被html隔开了我就能正常显示
+        @*这是服务端注释内容*@
+        <!--这是客户端注释内容-->  
+        <a href="@Url.Action("MyViewPage2","MyFirst")">链接-不推荐使用</a>
+        @Html.ActionLink("这是个超链接-推荐使用", "MyViewPage2")
+        @Html.Raw("<i>看我输出的内容</i>")
+        @Html.Encode("<i>看我输出的内容</i>")
+        @Html.Action("MyViewPage2", "MyFirst")
+
+
+        <!--表单控件-->
+        @Html.Label("lb11")
+        @Html.TextBox("stuName")
+        @Html.TextBox("StudentName")
+        @Html.TextBoxFor(c=>c.StudentName)
+        @Html.Hidden("StudentId")
+
+        @Html.CheckBox("StudentId")
+        @Html.RadioButton("StudentName", "StudentName")
+        @Html.DropDownList("ListStudent")
+        @using(Html.BeginForm("MyViewPage2","MyFirst"))
+        {
+            @Html.Label("StudentName", "姓名")
+            @Html.TextBox("StudentName")
+            <input type="button" value="提交" />
+        }
+    </div>
+</body>
+</html>

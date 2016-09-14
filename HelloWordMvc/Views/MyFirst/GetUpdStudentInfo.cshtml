@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+@model HelloWordMvc.Models.StudentInfo
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetUpdStudentInfo</title>
+</head>
+<body>
+    <div>
+        @using(Html.BeginForm("GetUpdStudentInfo","MyFirst"))
+        {
+            @Html.TextBoxFor(c=>c.StudentId)<br />
+            @Html.TextBox("StudentName")<br />
+            @Html.TextBox("StudentAge")<br />
+            @Html.TextBox("ClassId")<br />
+            <input type="submit" value="提交" />
+        }
+    </div>
+</body>
+</html>

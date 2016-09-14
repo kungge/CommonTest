@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC35D57D-47E7-411A-95FC-CB20C7FE8818}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFTest</RootNamespace>
+    <AssemblyName>EFTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AreaInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Card.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardStock.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CardType.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassInfo.cs">
+      <DependentUpon>EFTestDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerType.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>EFTestDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentInfo.cs">
+      <DependentUpon>EFTestDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFTestDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFTestDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFTestDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFTestDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFTestDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EFTestDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Flow.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlowNode.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelYYCard.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelYYCard.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelYYCard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelYYCard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelYYCard.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ONCardRelation.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcLog.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proc_TestInqCustomer_Result.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleUserRelation.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SiteMail.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockProc.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockProcDetail.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInfo.cs">
+      <DependentUpon>EFTestDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskHandle.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>ModelYYCard.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ModelYYCard.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelYYCard.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EFTestDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EFTestDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EFTestDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFTestDBModel.edmx</DependentUpon>
+      <LastGenOutput>EFTestDBModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="EFTestDBModel.edmx.diagram">
+      <DependentUpon>EFTestDBModel.edmx</DependentUpon>
+    </None>
+    <None Include="EFTestDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EFTestDBModel.edmx</DependentUpon>
+      <LastGenOutput>EFTestDBModel.cs</LastGenOutput>
+    </None>
+    <None Include="ModelYYCard.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelYYCard.edmx</DependentUpon>
+      <LastGenOutput>ModelYYCard.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelYYCard.edmx.diagram">
+      <DependentUpon>ModelYYCard.edmx</DependentUpon>
+    </None>
+    <None Include="ModelYYCard.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelYYCard.edmx</DependentUpon>
+      <LastGenOutput>ModelYYCard.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EFTestDBModel.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

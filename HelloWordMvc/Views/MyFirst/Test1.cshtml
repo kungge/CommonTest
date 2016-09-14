@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test1</title>
+</head>
+<body>
+    <div>
+        @ViewData["id"]
+
+     @using (Html.BeginForm("Test1", "MyFirst"))
+     {
+         @Html.TextBox("txt1")
+         <input type="submit" value="提交" />        
+     }
+    </div>
+</body>
+</html>

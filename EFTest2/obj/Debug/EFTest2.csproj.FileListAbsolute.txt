@@ -1,0 +1,9 @@
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\bin\Debug\EFTest2.exe.config
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\bin\Debug\EFTest2.exe
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\bin\Debug\EFTest2.pdb
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\obj\Debug\EFTest2.exe
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\obj\Debug\EFTest2.pdb
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\bin\Debug\EntityFramework.dll
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\bin\Debug\EntityFramework.xml
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest2\obj\Debug\EFTest2.csprojResolveAssemblyReference.cache

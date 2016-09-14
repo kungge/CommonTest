@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YYCardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AreaInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="32" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="varchar" MaxLength="32" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardTypeID" Type="int" Nullable="false" />
+    <Property Name="Denomination" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardRemark" Type="varchar" MaxLength="256" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="32" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="varchar" MaxLength="32" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CardInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardName" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="IsSpecialCard" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="AppointedCardPerson" Type="int" />
+    <Property Name="Denomination" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardRemark" Type="varchar" MaxLength="256" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="32" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="varchar" MaxLength="32" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CardStock">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardID" Type="int" Nullable="false" />
+    <Property Name="CardNum" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Denomination" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InDetailID" Type="int" />
+    <Property Name="CancelDetailID" Type="int" />
+    <Property Name="OrderDetailID" Type="int" />
+    <Property Name="StockStatus" Type="int" Nullable="false" />
+    <Property Name="StatusDescription" Type="nvarchar" MaxLength="16" />
+    <Property Name="LockStatus" Type="int" Nullable="false" />
+    <Property Name="InStockPerson" Type="int" Nullable="false" />
+    <Property Name="InStockDateTime" Type="datetime" Nullable="false" />
+    <Property Name="CardSortNum" Type="int" Nullable="false" />
+    <Property Name="ThisDetailSortNum" Type="int" Nullable="false" />
+    <Property Name="CardValidate" Type="int" Nullable="false" />
+    <Property Name="CardOwner" Type="varchar" MaxLength="64" />
+    <Property Name="InStockFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CardType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="IsSpecialCard" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="AppointedCardPerson" Type="int" />
+    <Property Name="CardRemark" Type="varchar" MaxLength="256" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="32" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="varchar" MaxLength="32" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CompanyInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="32" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="varchar" MaxLength="32" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerType" Type="int" Nullable="false" />
+    <Property Name="CustomerBelong" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="32" />
+    <Property Name="Area" Type="int" />
+    <Property Name="AreaInfo" Type="nvarchar" MaxLength="32" />
+    <Property Name="Address" Type="nvarchar" MaxLength="128" />
+    <Property Name="Telephone" Type="varchar" MaxLength="32" />
+    <Property Name="Fax" Type="varchar" MaxLength="32" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="16" />
+    <Property Name="Industry" Type="nvarchar" MaxLength="64" />
+    <Property Name="CustomerSource" Type="nvarchar" MaxLength="64" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="64" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="32" />
+    <Property Name="ContactMobile" Type="varchar" MaxLength="32" />
+    <Property Name="ReceivePerson" Type="nvarchar" MaxLength="32" />
+    <Property Name="ReceivePhone" Type="varchar" MaxLength="32" />
+    <Property Name="ReceiveMobile" Type="varchar" MaxLength="32" />
+    <Property Name="ReceiveAddr" Type="nvarchar" MaxLength="128" />
+    <Property Name="ReceiveZip" Type="varchar" MaxLength="16" />
+    <Property Name="AppointedCardPerson" Type="int" />
+    <Property Name="CustomerRemark" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DeliveryInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="DeliveryMode" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="DeliverModeDescription" Type="nvarchar" MaxLength="16" />
+    <Property Name="DeliveryTime" Type="datetime" />
+    <Property Name="Receiver" Type="nvarchar" MaxLength="16" />
+    <Property Name="ContactMethod" Type="nvarchar" MaxLength="64" />
+    <Property Name="DeliveryAddr" Type="nvarchar" MaxLength="128" />
+    <Property Name="DeliveryRemark" Type="nvarchar" MaxLength="64" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Flow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlowNum" Type="varchar" MaxLength="32" />
+    <Property Name="Name" Type="varchar" MaxLength="32" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FlowNode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlowID" Type="int" Nullable="false" />
+    <Property Name="NodeSite" Type="int" Nullable="false" />
+    <Property Name="NodeHandler" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="NodeName" Type="varchar" MaxLength="32" />
+    <Property Name="NodeNum" Type="varchar" MaxLength="32" />
+    <Property Name="NodeType" Type="varchar" MaxLength="16" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InvoiceInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="InvoiceNum" Type="varchar" MaxLength="32" />
+    <Property Name="Title" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="InvoiceContent" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Amount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OutInvoiceCompany" Type="nvarchar" MaxLength="64" />
+    <Property Name="InvoiceRemark" Type="nvarchar" MaxLength="64" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ONCardRelation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OldCardId" Type="int" Nullable="false" />
+    <Property Name="NewCardId" Type="int" Nullable="false" />
+    <Property Name="CardName" Type="varchar" MaxLength="32" />
+    <Property Name="Denomination" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="32" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="varchar" MaxLength="32" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainId" Type="int" Nullable="false" />
+    <Property Name="CardId" Type="int" Nullable="false" />
+    <Property Name="Denomination" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardCount" Type="int" Nullable="false" />
+    <Property Name="CardTotalAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNum" Type="varchar" MaxLength="32" />
+    <Property Name="OrderTaskId" Type="int" Nullable="false" />
+    <Property Name="DeliveryTaskId" Type="int" Nullable="false" />
+    <Property Name="ActivateTaskId" Type="int" Nullable="false" />
+    <Property Name="OrderCreator" Type="int" Nullable="false" />
+    <Property Name="OrderCreatTime" Type="datetime" Nullable="false" />
+    <Property Name="OrderStatus" Type="int" Nullable="false" />
+    <Property Name="StatusDescription" Type="nvarchar" MaxLength="32" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="CardType" Type="nvarchar" MaxLength="32" />
+    <Property Name="CardCount" Type="int" Nullable="false" />
+    <Property Name="TotalAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OrderProcStatus" Type="nvarchar" MaxLength="32" />
+    <Property Name="PayMoney" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HasPaidMoney" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HasReceivedMoney" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HasInvoice" Type="int" Nullable="false" />
+    <Property Name="InvoiceMoney" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PayMode" Type="nvarchar" MaxLength="16" />
+    <Property Name="EntryCompany" Type="nvarchar" MaxLength="64" />
+    <Property Name="OutInvoiceCompany" Type="nvarchar" MaxLength="64" />
+    <Property Name="ActiveWay" Type="int" Nullable="false" />
+    <Property Name="ProcPerson" Type="int" Nullable="false" />
+    <Property Name="DeliveryMode" Type="int" Nullable="false" />
+    <Property Name="DeliveryStatus" Type="int" Nullable="false" />
+    <Property Name="DeliveryMan" Type="nvarchar" MaxLength="32" />
+    <Property Name="OrderCancelPerson" Type="int" />
+    <Property Name="OrderCancelTime" Type="datetime" />
+    <Property Name="ActiveStatus" Type="int" Nullable="false" />
+    <Property Name="ActivePerson" Type="int" />
+    <Property Name="ActiveTime" Type="datetime" />
+    <Property Name="OrderReceiver" Type="int" />
+    <Property Name="ReceiveOrderTime" Type="datetime" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PayInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="PayFlag" Type="int" Nullable="false" />
+    <Property Name="SourceCompany" Type="nvarchar" MaxLength="64" />
+    <Property Name="EntryCompany" Type="nvarchar" MaxLength="64" />
+    <Property Name="PayMode" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="PayModeDescription" Type="nvarchar" MaxLength="16" />
+    <Property Name="PayAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProcLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcType" Type="int" Nullable="false" />
+    <Property Name="ProcTypeDescription" Type="nvarchar" MaxLength="32" />
+    <Property Name="CardId" Type="int" />
+    <Property Name="ProcDetailId" Type="int" />
+    <Property Name="CardStartNum" Type="varchar" MaxLength="64" />
+    <Property Name="CardEndNum" Type="varchar" MaxLength="64" />
+    <Property Name="CardNumSection" Type="varchar" MaxLength="128" />
+    <Property Name="CardCount" Type="int" />
+    <Property Name="Processer" Type="nvarchar" MaxLength="64" />
+    <Property Name="ProcTime" Type="datetime" />
+    <Property Name="AllotFlag" Type="int" />
+    <Property Name="SourceFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleUserRelation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SiteMail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="int" Nullable="false" />
+    <Property Name="Receiver" Type="int" Nullable="false" />
+    <Property Name="MailContent" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="SendDateTime" Type="datetime" Nullable="false" />
+    <Property Name="MailType" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="MailStatus" Type="int" Nullable="false" />
+    <Property Name="StatusDescription" Type="nvarchar" MaxLength="16" />
+    <Property Name="Reader" Type="int" />
+    <Property Name="ReadDateTime" Type="datetime" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StockProc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNum" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="ProcType" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="ProcUser" Type="int" Nullable="false" />
+    <Property Name="ProcTime" Type="datetime" Nullable="false" />
+    <Property Name="ProcRemark" Type="nvarchar" MaxLength="256" />
+    <Property Name="AllotFrom" Type="varchar" MaxLength="32" />
+    <Property Name="AllotTo" Type="varchar" MaxLength="32" />
+    <Property Name="AllotType" Type="varchar" MaxLength="32" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StockProcDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MainID" Type="int" Nullable="false" />
+    <Property Name="CardID" Type="int" Nullable="false" />
+    <Property Name="CardStartNum" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="CardEndNum" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="CardCount" Type="int" Nullable="false" />
+    <Property Name="CardDenomination" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardTotalAmount" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AllotFrom" Type="varchar" MaxLength="32" />
+    <Property Name="AllotTo" Type="varchar" MaxLength="32" />
+    <Property Name="AllotType" Type="varchar" MaxLength="32" />
+    <Property Name="ProcType" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="CardStockId" Type="int" />
+    <Property Name="SourceFlag" Type="int" />
+    <Property Name="SourceRemark" Type="varchar" MaxLength="256" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="FlowId" Type="int" Nullable="false" />
+    <Property Name="TaskNum" Type="varchar" MaxLength="32" />
+    <Property Name="TaskName" Type="nvarchar" MaxLength="32" />
+    <Property Name="CompleteStatus" Type="int" Nullable="false" />
+    <Property Name="CompleteStatusDescription" Type="nvarchar" MaxLength="16" />
+    <Property Name="CurrentFlowNodeId" Type="int" Nullable="false" />
+    <Property Name="CurrentTaskHandleId" Type="int" />
+    <Property Name="TaskHandler" Type="varchar" MaxLength="64" />
+    <Property Name="NextHandler" Type="varchar" MaxLength="64" />
+    <Property Name="TaskCreator" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="TaskCreateTime" Type="datetime" Nullable="false" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TaskHandle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="FlowId" Type="int" />
+    <Property Name="FlowNodeId" Type="int" Nullable="false" />
+    <Property Name="FlowNodeSite" Type="int" />
+    <Property Name="Handler" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="HandleTime" Type="datetime" Nullable="false" />
+    <Property Name="HandleStatus" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="HandleStatusDescription" Type="nvarchar" MaxLength="32" />
+    <Property Name="HandleRemark" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="NextHandler" Type="varchar" MaxLength="64" />
+    <Property Name="LastHandler" Type="varchar" MaxLength="64" />
+    <Property Name="LeapFlag" Type="int" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="64" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserAccount" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Pwd" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Telephone" Type="varchar" MaxLength="32" />
+    <Property Name="MobilePhone" Type="varchar" MaxLength="32" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="JobNumber" Type="varchar" MaxLength="32" />
+    <Property Name="JoinDate" Type="date" />
+    <Property Name="JobStatus" Type="varchar" MaxLength="32" />
+    <Property Name="LeaveDate" Type="date" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="PauseReceive" Type="int" Nullable="false" />
+    <Property Name="InLinePhone" Type="varchar" MaxLength="32" />
+    <Property Name="UserRemark" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="RoleDescription" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsDel" Type="int" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="16" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Revisor" Type="nvarchar" MaxLength="16" />
+    <Property Name="ReviseTime" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Customer_CustomerType">
+    <End Role="CustomerType" Type="Self.CustomerType" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CustomerType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderInfo_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="OrderInfo" Type="Self.OrderInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderInfo">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Proc_TestAreaInfoIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Creator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_TestAreInfoDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="areaId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_TestAreInfoUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="areaId" Type="int" Mode="In" />
+    <Parameter Name="updName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_TestInqCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_TestWithInputOutPut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerId" Type="int" Mode="In" />
+    <Parameter Name="rowCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="Proc_TestWithReturnValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_TestWithReturnValue2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="YYCardModelStoreContainer">
+    <EntitySet Name="AreaInfo" EntityType="Self.AreaInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardInfo" EntityType="Self.CardInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardStock" EntityType="Self.CardStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CardType" EntityType="Self.CardType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyInfo" EntityType="Self.CompanyInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerType" EntityType="Self.CustomerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryInfo" EntityType="Self.DeliveryInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flow" EntityType="Self.Flow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlowNode" EntityType="Self.FlowNode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceInfo" EntityType="Self.InvoiceInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ONCardRelation" EntityType="Self.ONCardRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PayInfo" EntityType="Self.PayInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcLog" EntityType="Self.ProcLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleUserRelation" EntityType="Self.RoleUserRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteMail" EntityType="Self.SiteMail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockProc" EntityType="Self.StockProc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockProcDetail" EntityType="Self.StockProcDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskHandle" EntityType="Self.TaskHandle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Customer_CustomerType" Association="Self.FK_Customer_CustomerType">
+      <End Role="CustomerType" EntitySet="CustomerType" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderInfo_Customer" Association="Self.FK_OrderInfo_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderInfo" EntitySet="OrderInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

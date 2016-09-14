@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YYCardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AreaInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardTypeID" Type="Int32" Nullable="false" />
+    <Property Name="Denomination" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardRemark" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CardInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsSpecialCard" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AppointedCardPerson" Type="Int32" />
+    <Property Name="Denomination" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardRemark" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CardStock">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardID" Type="Int32" Nullable="false" />
+    <Property Name="CardNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Denomination" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InDetailID" Type="Int32" />
+    <Property Name="CancelDetailID" Type="Int32" />
+    <Property Name="OrderDetailID" Type="Int32" />
+    <Property Name="StockStatus" Type="Int32" Nullable="false" />
+    <Property Name="StatusDescription" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="LockStatus" Type="Int32" Nullable="false" />
+    <Property Name="InStockPerson" Type="Int32" Nullable="false" />
+    <Property Name="InStockDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CardSortNum" Type="Int32" Nullable="false" />
+    <Property Name="ThisDetailSortNum" Type="Int32" Nullable="false" />
+    <Property Name="CardValidate" Type="Int32" Nullable="false" />
+    <Property Name="CardOwner" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="InStockFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CardType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsSpecialCard" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AppointedCardPerson" Type="Int32" />
+    <Property Name="CardRemark" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CompanyInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerType" Type="Int32" Nullable="false" />
+    <Property Name="CustomerBelong" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Area" Type="Int32" />
+    <Property Name="AreaInfo" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerSource" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPerson" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ContactMobile" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReceivePerson" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ReceivePhone" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiveMobile" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiveAddr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiveZip" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="AppointedCardPerson" Type="Int32" />
+    <Property Name="CustomerRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CustomerType1" Relationship="YYCardModel.FK_Customer_CustomerType" FromRole="Customer" ToRole="CustomerType" />
+    <NavigationProperty Name="OrderInfoes" Relationship="YYCardModel.FK_OrderInfo_Customer" FromRole="Customer" ToRole="OrderInfo" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customers" Relationship="YYCardModel.FK_Customer_CustomerType" FromRole="CustomerType" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="DeliveryInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeliverModeDescription" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryTime" Type="DateTime" Precision="3" />
+    <Property Name="Receiver" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ContactMethod" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryAddr" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryRemark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Flow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FlowNum" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FlowNode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FlowID" Type="Int32" Nullable="false" />
+    <Property Name="NodeSite" Type="Int32" Nullable="false" />
+    <Property Name="NodeHandler" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NodeName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="NodeNum" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="NodeType" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="InvoiceInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceNum" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InvoiceContent" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OutInvoiceCompany" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceRemark" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ONCardRelation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OldCardId" Type="Int32" Nullable="false" />
+    <Property Name="NewCardId" Type="Int32" Nullable="false" />
+    <Property Name="CardName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Denomination" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainId" Type="Int32" Nullable="false" />
+    <Property Name="CardId" Type="Int32" Nullable="false" />
+    <Property Name="Denomination" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardCount" Type="Int32" Nullable="false" />
+    <Property Name="CardTotalAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNum" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="OrderTaskId" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryTaskId" Type="Int32" Nullable="false" />
+    <Property Name="ActivateTaskId" Type="Int32" Nullable="false" />
+    <Property Name="OrderCreator" Type="Int32" Nullable="false" />
+    <Property Name="OrderCreatTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderStatus" Type="Int32" Nullable="false" />
+    <Property Name="StatusDescription" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="CardType" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CardCount" Type="Int32" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="OrderProcStatus" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="PayMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HasPaidMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HasReceivedMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="HasInvoice" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PayMode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="EntryCompany" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="OutInvoiceCompany" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ActiveWay" Type="Int32" Nullable="false" />
+    <Property Name="ProcPerson" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMode" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryStatus" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryMan" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="OrderCancelPerson" Type="Int32" />
+    <Property Name="OrderCancelTime" Type="DateTime" Precision="3" />
+    <Property Name="ActiveStatus" Type="Int32" Nullable="false" />
+    <Property Name="ActivePerson" Type="Int32" />
+    <Property Name="ActiveTime" Type="DateTime" Precision="3" />
+    <Property Name="OrderReceiver" Type="Int32" />
+    <Property Name="ReceiveOrderTime" Type="DateTime" Precision="3" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="YYCardModel.FK_OrderInfo_Customer" FromRole="OrderInfo" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="PayInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="PayFlag" Type="Int32" Nullable="false" />
+    <Property Name="SourceCompany" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="EntryCompany" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="PayMode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PayModeDescription" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="PayAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProcLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProcType" Type="Int32" Nullable="false" />
+    <Property Name="ProcTypeDescription" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CardId" Type="Int32" />
+    <Property Name="ProcDetailId" Type="Int32" />
+    <Property Name="CardStartNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CardEndNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CardNumSection" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="CardCount" Type="Int32" />
+    <Property Name="Processer" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ProcTime" Type="DateTime" Precision="3" />
+    <Property Name="AllotFlag" Type="Int32" />
+    <Property Name="SourceFlag" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RoleUserRelation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SiteMail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sender" Type="Int32" Nullable="false" />
+    <Property Name="Receiver" Type="Int32" Nullable="false" />
+    <Property Name="MailContent" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SendDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MailType" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MailStatus" Type="Int32" Nullable="false" />
+    <Property Name="StatusDescription" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Reader" Type="Int32" />
+    <Property Name="ReadDateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="StockProc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProcType" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProcUser" Type="Int32" Nullable="false" />
+    <Property Name="ProcTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProcRemark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="AllotFrom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="AllotTo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="AllotType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="StockProcDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MainID" Type="Int32" Nullable="false" />
+    <Property Name="CardID" Type="Int32" Nullable="false" />
+    <Property Name="CardStartNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CardEndNum" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CardCount" Type="Int32" Nullable="false" />
+    <Property Name="CardDenomination" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CardTotalAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="AllotFrom" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="AllotTo" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="AllotType" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ProcType" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CardStockId" Type="Int32" />
+    <Property Name="SourceFlag" Type="Int32" />
+    <Property Name="SourceRemark" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="FlowId" Type="Int32" Nullable="false" />
+    <Property Name="TaskNum" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="TaskName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CompleteStatus" Type="Int32" Nullable="false" />
+    <Property Name="CompleteStatusDescription" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentFlowNodeId" Type="Int32" Nullable="false" />
+    <Property Name="CurrentTaskHandleId" Type="Int32" />
+    <Property Name="TaskHandler" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="NextHandler" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="TaskCreator" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TaskCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TaskHandle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="FlowId" Type="Int32" />
+    <Property Name="FlowNodeId" Type="Int32" Nullable="false" />
+    <Property Name="FlowNodeSite" Type="Int32" />
+    <Property Name="Handler" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HandleTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HandleStatus" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HandleStatusDescription" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="HandleRemark" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NextHandler" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="LastHandler" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="LeapFlag" Type="Int32" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserAccount" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pwd" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telephone" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="MobilePhone" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="Int32" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="JobNumber" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="DateTime" Precision="0" />
+    <Property Name="JobStatus" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDate" Type="DateTime" Precision="0" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="PauseReceive" Type="Int32" Nullable="false" />
+    <Property Name="InLinePhone" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="UserRemark" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsDel" Type="Int32" Nullable="false" />
+    <Property Name="Creator" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Revisor" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="ReviseTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="YYCardEntitiesTwo" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AreaInfoes" EntityType="Self.AreaInfo" />
+    <EntitySet Name="Cards" EntityType="Self.Card" />
+    <EntitySet Name="CardInfoes" EntityType="Self.CardInfo" />
+    <EntitySet Name="CardStocks" EntityType="Self.CardStock" />
+    <EntitySet Name="CardTypes" EntityType="Self.CardType" />
+    <EntitySet Name="CompanyInfoes" EntityType="Self.CompanyInfo" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="CustomerTypes" EntityType="Self.CustomerType" />
+    <EntitySet Name="DeliveryInfoes" EntityType="Self.DeliveryInfo" />
+    <EntitySet Name="Flows" EntityType="Self.Flow" />
+    <EntitySet Name="FlowNodes" EntityType="Self.FlowNode" />
+    <EntitySet Name="InvoiceInfoes" EntityType="Self.InvoiceInfo" />
+    <EntitySet Name="ONCardRelations" EntityType="Self.ONCardRelation" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="OrderInfoes" EntityType="Self.OrderInfo" />
+    <EntitySet Name="PayInfoes" EntityType="Self.PayInfo" />
+    <EntitySet Name="ProcLogs" EntityType="Self.ProcLog" />
+    <EntitySet Name="RoleUserRelations" EntityType="Self.RoleUserRelation" />
+    <EntitySet Name="SiteMails" EntityType="Self.SiteMail" />
+    <EntitySet Name="StockProcs" EntityType="Self.StockProc" />
+    <EntitySet Name="StockProcDetails" EntityType="Self.StockProcDetail" />
+    <EntitySet Name="Tasks" EntityType="Self.Task" />
+    <EntitySet Name="TaskHandles" EntityType="Self.TaskHandle" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <AssociationSet Name="FK_Customer_CustomerType" Association="YYCardModel.FK_Customer_CustomerType">
+      <End Role="CustomerType" EntitySet="CustomerTypes" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderInfo_Customer" Association="YYCardModel.FK_OrderInfo_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="OrderInfo" EntitySet="OrderInfoes" />
+    </AssociationSet>
+    <FunctionImport Name="Proc_TestInqCustomer" ReturnType="Collection(YYCardModel.Proc_TestInqCustomer_Result)" />
+    <FunctionImport Name="Proc_TestWithInputOutPut">
+      <Parameter Name="customerId" Mode="In" Type="Int32" />
+      <Parameter Name="rowCount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TestWithReturnValue">
+      <Parameter Name="customerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TestWithReturnValue2">
+      <Parameter Name="customerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TestAreaInfoIns">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Creator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TestAreInfoDel">
+      <Parameter Name="areaId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_TestAreInfoUpd">
+      <Parameter Name="areaId" Mode="In" Type="Int32" />
+      <Parameter Name="updName" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <Association Name="FK_Customer_CustomerType">
+    <End Type="YYCardModel.CustomerType" Role="CustomerType" Multiplicity="1" />
+    <End Type="YYCardModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CustomerType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderInfo_Customer">
+    <End Type="YYCardModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="YYCardModel.OrderInfo" Role="OrderInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderInfo">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Proc_TestInqCustomer_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="CustomerType" Nullable="false" />
+    <Property Type="Int32" Name="CustomerBelong" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="32" />
+    <Property Type="Int32" Name="Area" Nullable="true" />
+    <Property Type="String" Name="AreaInfo" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="Industry" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="CustomerSource" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="ContactPerson" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="ContactPhone" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ContactMobile" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ReceivePerson" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ReceivePhone" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ReceiveMobile" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ReceiveAddr" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="ReceiveZip" Nullable="true" MaxLength="16" />
+    <Property Type="Int32" Name="AppointedCardPerson" Nullable="true" />
+    <Property Type="String" Name="CustomerRemark" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="IsDel" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Revisor" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="ReviseTime" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

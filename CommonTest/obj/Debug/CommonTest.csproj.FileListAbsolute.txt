@@ -1,0 +1,6 @@
+E:\WorkFiles\studyfiles\mypro\CommonTest\CommonTest\bin\CommonTest.dll.config
+E:\WorkFiles\studyfiles\mypro\CommonTest\CommonTest\bin\CommonTest.dll
+E:\WorkFiles\studyfiles\mypro\CommonTest\CommonTest\bin\CommonTest.pdb
+E:\WorkFiles\studyfiles\mypro\CommonTest\CommonTest\obj\Debug\CommonTest.csprojResolveAssemblyReference.cache
+E:\WorkFiles\studyfiles\mypro\CommonTest\CommonTest\obj\Debug\CommonTest.dll
+E:\WorkFiles\studyfiles\mypro\CommonTest\CommonTest\obj\Debug\CommonTest.pdb

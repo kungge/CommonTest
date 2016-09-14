@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HelloWordMvc.Models.EFTestDBEntities>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View2</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentInfo.Select(c => c.StudentId))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentInfo.Select(c => c.StudentName))
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.StudentInfo.Select(c=>c.StudentId) }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentInfo.Select(c => c.StudentId) }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentInfo.Select(c => c.StudentId) })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

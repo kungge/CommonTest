@@ -1,0 +1,6 @@
+E:\WorkFiles\studyfiles\mypro\CommonTest\MVCEFStudyBefore\bin\Debug\MVCEFStudyBefore.exe.config
+E:\WorkFiles\studyfiles\mypro\CommonTest\MVCEFStudyBefore\bin\Debug\MVCEFStudyBefore.exe
+E:\WorkFiles\studyfiles\mypro\CommonTest\MVCEFStudyBefore\bin\Debug\MVCEFStudyBefore.pdb
+E:\WorkFiles\studyfiles\mypro\CommonTest\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.exe
+E:\WorkFiles\studyfiles\mypro\CommonTest\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.pdb
+E:\WorkFiles\studyfiles\mypro\CommonTest\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.csprojResolveAssemblyReference.cache
