@@ -4,3 +4,9 @@ E:\WorkFiles\studyfiles\mypro\CommonTest\TestUseCLRProfiler\bin\Debug\TestUseCLR
 E:\WorkFiles\studyfiles\mypro\CommonTest\TestUseCLRProfiler\obj\Debug\TestUseCLRProfiler.csprojResolveAssemblyReference.cache
 E:\WorkFiles\studyfiles\mypro\CommonTest\TestUseCLRProfiler\obj\Debug\TestUseCLRProfiler.exe
 E:\WorkFiles\studyfiles\mypro\CommonTest\TestUseCLRProfiler\obj\Debug\TestUseCLRProfiler.pdb
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\TestUseCLRProfiler\bin\Debug\TestUseCLRProfiler.exe.config
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\TestUseCLRProfiler\obj\Debug\TestUseCLRProfiler.exe
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\TestUseCLRProfiler\obj\Debug\TestUseCLRProfiler.pdb
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\TestUseCLRProfiler\bin\Debug\TestUseCLRProfiler.exe
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\TestUseCLRProfiler\bin\Debug\TestUseCLRProfiler.pdb
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\TestUseCLRProfiler\obj\Debug\TestUseCLRProfiler.csprojResolveAssemblyReference.cache
