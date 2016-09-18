@@ -9,3 +9,14 @@ E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest\bin\Debug\zh-Hans\EntityFramewor
 E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest\obj\Debug\EFTest.exe
 E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest\obj\Debug\EFTest.pdb
 E:\WorkFiles\studyfiles\mypro\CommonTest\EFTest\obj\Debug\EFTest.csprojResolveAssemblyReference.cache
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EFTest.exe.config
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EFTest.exe
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EFTest.pdb
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EntityFramework.dll
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EntityFramework.SqlServer.dll
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EntityFramework.xml
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\EntityFramework.SqlServer.xml
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\obj\Debug\EFTest.csprojResolveAssemblyReference.cache
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\obj\Debug\EFTest.exe
+E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\obj\Debug\EFTest.pdb
