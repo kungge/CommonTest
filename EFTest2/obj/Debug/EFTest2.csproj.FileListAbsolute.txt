@@ -16,3 +16,4 @@ E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest2\bin\Debug\zh
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest2\obj\Debug\EFTest2.csprojResolveAssemblyReference.cache
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest2\obj\Debug\EFTest2.exe
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest2\obj\Debug\EFTest2.pdb
+E:\jobFiles\myproj\online\CommonTest\EFTest2\obj\Debug\EFTest2.csprojResolveAssemblyReference.cache

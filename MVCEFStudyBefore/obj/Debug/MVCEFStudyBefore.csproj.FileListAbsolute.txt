@@ -10,3 +10,9 @@ E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\MVCEFStudyBefore\bin
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.csprojResolveAssemblyReference.cache
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.exe
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.pdb
+E:\jobFiles\myproj\online\CommonTest\MVCEFStudyBefore\bin\Debug\MVCEFStudyBefore.exe.config
+E:\jobFiles\myproj\online\CommonTest\MVCEFStudyBefore\bin\Debug\MVCEFStudyBefore.exe
+E:\jobFiles\myproj\online\CommonTest\MVCEFStudyBefore\bin\Debug\MVCEFStudyBefore.pdb
+E:\jobFiles\myproj\online\CommonTest\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.csprojResolveAssemblyReference.cache
+E:\jobFiles\myproj\online\CommonTest\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.exe
+E:\jobFiles\myproj\online\CommonTest\MVCEFStudyBefore\obj\Debug\MVCEFStudyBefore.pdb

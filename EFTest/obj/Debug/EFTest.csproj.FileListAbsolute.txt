@@ -20,3 +20,4 @@ E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\bin\Debug\zh-
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\obj\Debug\EFTest.csprojResolveAssemblyReference.cache
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\obj\Debug\EFTest.exe
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\EFTest\obj\Debug\EFTest.pdb
+E:\jobFiles\myproj\online\CommonTest\EFTest\obj\Debug\EFTest.csprojResolveAssemblyReference.cache

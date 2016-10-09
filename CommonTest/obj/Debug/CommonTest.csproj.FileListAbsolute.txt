@@ -10,3 +10,9 @@ E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\CommonTest\bin\Commo
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\CommonTest\obj\Debug\CommonTest.csprojResolveAssemblyReference.cache
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\CommonTest\obj\Debug\CommonTest.dll
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\CommonTest\obj\Debug\CommonTest.pdb
+E:\jobFiles\myproj\online\CommonTest\CommonTest\bin\CommonTest.dll.config
+E:\jobFiles\myproj\online\CommonTest\CommonTest\bin\CommonTest.dll
+E:\jobFiles\myproj\online\CommonTest\CommonTest\bin\CommonTest.pdb
+E:\jobFiles\myproj\online\CommonTest\CommonTest\obj\Debug\CommonTest.csprojResolveAssemblyReference.cache
+E:\jobFiles\myproj\online\CommonTest\CommonTest\obj\Debug\CommonTest.dll
+E:\jobFiles\myproj\online\CommonTest\CommonTest\obj\Debug\CommonTest.pdb

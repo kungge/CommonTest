@@ -190,3 +190,4 @@ E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\HelloWordMvc\bin\zh-
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\HelloWordMvc\obj\Debug\HelloWordMvc.csprojResolveAssemblyReference.cache
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\HelloWordMvc\obj\Debug\HelloWordMvc.dll
 E:\WorkFiles\studyfiles\mypro\CodeOnLine\CommonTestInGitHub\HelloWordMvc\obj\Debug\HelloWordMvc.pdb
+E:\jobFiles\myproj\online\CommonTest\HelloWordMvc\obj\Debug\HelloWordMvc.csprojResolveAssemblyReference.cache
