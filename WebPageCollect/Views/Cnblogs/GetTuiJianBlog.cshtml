@@ -1,10 +1,28 @@
-﻿
+﻿@model Dictionary<string,object>
+ @using WebPageCollect.Models;
+
 @{
+    List<BlogInfo> list = (List<BlogInfo>)Model["NameBlogList"];
+
     ViewBag.Title = "GetTuiJianBlog";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
-<h2>GetTuiJianBlog</h2>
+<h2>推荐博客</h2>
+<ul>
+    @if (list != null && list.Count > 0)
+    {
+        foreach (var item in list)
+        {
+            <li><a href="@item.BlogUrl">@item.BlogName</a></li>
+        }
+    }
+    else
+    {
+        <li>未取到数据</li>
+    }
+</ul>
+
 
 
 

@@ -130,9 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CommonHelp\CommonHelper.cs" />
+    <Compile Include="CommonHelp\FileHelper.cs" />
     <Compile Include="CommonHelp\HiBlogHelper.cs" />
     <Compile Include="CommonHelp\JiedaiWHelper.cs" />
     <Compile Include="CommonHelp\LianTongHelper.cs" />
+    <Compile Include="Controllers\BaiduController.cs" />
     <Compile Include="Controllers\CnblogsController.cs" />
     <Compile Include="Controllers\HiBlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -141,6 +144,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BlogInfo.cs" />
+    <Compile Include="Models\BlogType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,8 +158,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HiBlog\SimulateLogin.cshtml" />
     <Content Include="Views\Cnblogs\GetTuiJianBlog.cshtml" />
-    <Content Include="Views\Cnblogs\GetBlogModuleByUName.cshtml" />
     <Content Include="Views\JiedaiW\SimulateLogin.cshtml" />
+    <Content Include="Views\Cnblogs\GetRecommendBlog.cshtml" />
+    <Content Include="Views\Cnblogs\GetBlogTypesByUName.cshtml" />
+    <Content Include="Views\Cnblogs\SaveBlog.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -164,8 +171,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="BlogFiles\" />
+    <Folder Include="TestFiles\" />
     <Folder Include="Upload\images\" />
+    <Folder Include="Views\Baidu\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
