@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuceneNetTest", "LuceneNetT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchTest", "SearchTest\SearchTest.csproj", "{EE5F886C-0E02-493B-A7C5-E3D41D26DB4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCollect", "WebCollect\WebCollect.csproj", "{99C84B92-E2A2-4025-8E80-97D9C23E1266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{EE5F886C-0E02-493B-A7C5-E3D41D26DB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE5F886C-0E02-493B-A7C5-E3D41D26DB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE5F886C-0E02-493B-A7C5-E3D41D26DB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
