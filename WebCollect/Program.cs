@@ -150,6 +150,8 @@ namespace WebCollect
         /// </summary>
         /// <param name="dic"></param>
         /// <param name="uname"></param>
+        /// <param name="useTime"></param>
+        /// <returns></returns>
         public static string DowanloadBlog(Dictionary<BlogType, List<BlogInfo>> dic, string uname,out long useTime)
         {
             Stopwatch sw = new Stopwatch();
@@ -272,6 +274,12 @@ namespace WebCollect
             }         
             return list;
         }
+        /// <summary>
+        /// 根据分类获取博客
+        /// </summary>
+        /// <param name="blogTypes"></param>
+        /// <param name="useTime"></param>
+        /// <returns></returns>
         public static Dictionary<BlogType,List<BlogInfo>> GetBlogsByType(List<BlogType> blogTypes,out long useTime)
         {
             Stopwatch sw = new Stopwatch();
@@ -310,7 +318,8 @@ namespace WebCollect
         /// <summary>
         /// 获取详细的博客信息
         /// </summary>
-        /// <param name="list"></param>
+        /// <param name="dic"></param>
+        /// <param name="useTime"></param>
         /// <returns></returns>
         public static Dictionary<BlogType, List<BlogInfo>> GetBlogDetail(Dictionary<BlogType, List<BlogInfo>> dic, out long useTime)
         {

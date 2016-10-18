@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchTest", "SearchTest\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCollect", "WebCollect\WebCollect.csproj", "{99C84B92-E2A2-4025-8E80-97D9C23E1266}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolsUse", "ToolsUse\ToolsUse.csproj", "{352461BE-758E-4D4E-AE63-B6404B9FBEFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C84B92-E2A2-4025-8E80-97D9C23E1266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352461BE-758E-4D4E-AE63-B6404B9FBEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352461BE-758E-4D4E-AE63-B6404B9FBEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352461BE-758E-4D4E-AE63-B6404B9FBEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352461BE-758E-4D4E-AE63-B6404B9FBEFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
