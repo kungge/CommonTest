@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Test1";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<link href="~/scripts/jquery.uploadify/uploadify.css" rel="stylesheet" />
+<script src="~/scripts/jquery.uploadify/swfobject.js"></script>
+<script src="~/scripts/jquery.uploadify/jquery.uploadify.v2.1.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#uploadify").uploadify({
+            'uploader': '@Url.Content("~/Scripts/jquery.uploadify/uploadify.swf")',
+            'script': '@Url.Content("~/UpYunTest/UploadTest")',
+            'cancelImg': '@Url.Content("~/Scripts/jquery.uploadify/cancel.png")',
+            'buttonImg': '@Url.Content("~/Scripts/jquery.uploadify/btnUpload3.png")',
+            'folder': '../upload/WineBrand',
+            'queueID': 'fileQueue',
+            'fileDesc': '*.rar;*.jpg;*.gif;*.png;*.jpeg',
+            'fileExt': '*.rar;*.jpg;*.gif;*.png;*.jpeg',
+            'sizeLimit': 0,
+            'auto': false,
+            'multi': false,
+            'onSelect': function (e, q, f) {
+                $("#fileQueue").addClass("uploads");
+            },
+            'onError': function (a, b, c, d) {
+                if (d.status == 404){
+                    alert('Could not find upload script.');
+                }
+                else if (d.type === "HTTP"){
+                    alert('error ' + d.type + ": " + d.status);
+                }
+                else if (d.type === "File Size"){
+                    alert(c.name + ' ' + ' 大小限制： ' + d.sizeLimit);
+                }
+                else {
+                    alert('error ' + d.type + ": " + d.info);
+                }
+            },
+            'onProgress': function (event, queueId, fileObj, data) {
+                var info = "已完成:" + data.percentage + "<br><br>";
+                info += "已上传大小:" + data.bytesLoaded + "<br><br>";
+                info += "文件队列中已经上传完的大小:" + data.allBytesLoaded + "<br><br>";
+                info += "上传速率:" + data.speed + "kb/s";
+            },
+            'onComplete': function (event, queueId, fileObj, response, data) {
+                //$("#info").html('剩余文件个数：' + data.fileCount + " <br><br>平均上传速度：" + data.speed + " kb/s");
+                //alert('46:' + response + ' ' + JSON.stringify(response) + ' ' + response.Data + ' ' + response.Message + $.parseJSON(response).Data);
+                var jsonData = $.parseJSON(response);
+                if (jsonData.IsError) {
+                    $("#info").html("上传失败：" + jsonData.Message);
+                } else {
+                    $("#info").html("上传完成，平均速度：" + data.speed + " kb/s");
+                    var url = jsonData.Data;
+                    $('#imgCover').attr('src', url);
+                    $('#Cover').val(url);
+                }
+
+            },
+            'onAllComplete': function (event, data) {
+                //alert('62:' + data+' '+JSON.stringify(data)+' ');
+            }
+        });
+        $("#upload").click(function () {
+            $('#uploadify').uploadifyUpload();
+        });
+    });
+</script>
+
+<div>
+
+    <fieldset style="border: 1px solid #b0c4de;">
+        <legend><b>图片上传</b></legend>
+        <div>
+            <p>
+                <input type="file" name="uploadify" id="uploadify" /><a href="javascript:;" id="upload">上传</a> | <a href="javascript:$('#uploadify').uploadifyClearQueue()" onclick="cancel()">取消</a>
+            </p>
+            <div id="fileQueue"></div>
+            <p id="info"> </p>
+        </div>
+    </fieldset>
+
+    <img id="imgCover" height="160" width="224" src="" />
+    <input type="hidden" id="Cover" name="Cover" value="" />
+</div>

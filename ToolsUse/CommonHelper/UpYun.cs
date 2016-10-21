@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 
 namespace ToolsUse.CommonHelper
@@ -170,7 +176,7 @@ namespace ToolsUse.CommonHelper
         public long getFolderUsage(string url)
         {
             Hashtable headers = new Hashtable();
-            int size;
+            long size;
             byte[] a = null;
             HttpWebResponse resp = newWorker("GET", DL + this.bucketname + url + "?usage", a, headers);
             try
@@ -392,6 +398,21 @@ namespace ToolsUse.CommonHelper
             }
 
             return strResult.ToLower();
+        }
+    }
+    //目录条目类
+    public class FolderItem
+    {
+        public string filename;
+        public string filetype;
+        public int size;
+        public int number;
+        public FolderItem(string filename, string filetype, int size, int number)
+        {
+            this.filename = filename;
+            this.filetype = filetype;
+            this.size = size;
+            this.number = number;
         }
     }
 }

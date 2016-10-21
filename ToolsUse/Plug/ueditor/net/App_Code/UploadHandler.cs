@@ -27,43 +27,42 @@ public class UploadHandler : Handler
         byte[] uploadFileBytes = null;
         string uploadFileName = null;
 
-        //if (UploadConfig.Base64)
-        //{
-        //    uploadFileName = UploadConfig.Base64Filename;
-        //    uploadFileBytes = Convert.FromBase64String(Request[UploadConfig.UploadFieldName]);
-        //}
-        //else
-        //{
-        //    var file = Request.Files[UploadConfig.UploadFieldName];
-        //    uploadFileName = file.FileName;
+        if (UploadConfig.Base64)
+        {
+            uploadFileName = UploadConfig.Base64Filename;
+            uploadFileBytes = Convert.FromBase64String(Request[UploadConfig.UploadFieldName]);
+        }
+        else
+        {
+            var file = Request.Files[UploadConfig.UploadFieldName];
+            uploadFileName = file.FileName;
 
-        //    if (!CheckFileType(uploadFileName))
-        //    {
-        //        Result.State = UploadState.TypeNotAllow;
-        //        WriteResult();
-        //        return;
-        //    }
-        //    if (!CheckFileSize(file.ContentLength))
-        //    {
-        //        Result.State = UploadState.SizeLimitExceed;
-        //        WriteResult();
-        //        return;
-        //    }
+            if (!CheckFileType(uploadFileName))
+            {
+                Result.State = UploadState.TypeNotAllow;
+                WriteResult();
+                return;
+            }
+            if (!CheckFileSize(file.ContentLength))
+            {
+                Result.State = UploadState.SizeLimitExceed;
+                WriteResult();
+                return;
+            }
 
-        //    uploadFileBytes = new byte[file.ContentLength];
-        //    try
-        //    {
-        //        file.InputStream.Read(uploadFileBytes, 0, file.ContentLength);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Result.State = UploadState.NetworkError;
-        //        WriteResult();
-        //    }
-        //}
+            uploadFileBytes = new byte[file.ContentLength];
+            try
+            {
+                file.InputStream.Read(uploadFileBytes, 0, file.ContentLength);
+            }
+            catch (Exception)
+            {
+                Result.State = UploadState.NetworkError;
+                WriteResult();
+            }
+        }
 
         //Result.OriginFileName = uploadFileName;
-
         //var savePath = PathFormatter.Format(uploadFileName, UploadConfig.PathFormat);
         //var localPath = Server.MapPath(savePath);
         //try
@@ -85,26 +84,19 @@ public class UploadHandler : Handler
         //{
         //    WriteResult();
         //}
+
+        //上传到upyun
         try
         {
-
-            // 域名http://amayergogh.b0.upaiyun.com/
-            UpYun upyun = new UpYun("amayergogh", "admin1", "adminheheda");
-
-            /// 设置待上传文件的 Content-MD5 值（如又拍云服务端收到的文件MD5值与用户设置的不一致，将回报 406 Not Acceptable 错误）
-            // upyun.setContentMD5(UpYun.md5_file(@"D:\"));
-            //upyun.setContentMD5(CommonHelper.CalcMD5(uploadFileBytes));
-            bool uploadResult = upyun.writeFile(upYunFilePath, uploadFileBytes, true);
-            if (uploadResult == true)
-            {
-                Result.Url = "又拍云地址    " + upYunFilePath;//返回给UEditor的插入编辑器的图片的src
-                Result.State = UploadState.Success;
-            }
-            else
-            {
-                Result.State = UploadState.FileAccessError;
-                Result.ErrorMessage = "上传到又拍云失败";
-            }
+            var extensionName = Path.GetExtension(uploadFileName);
+            var bucketType = UpyunHelper.GetFileType(extensionName + "_comprehensive ");//设置只传到综合的服务器kwan-upyun中
+            var fileName = UpyunHelper.BuildFileName(extensionName);
+            var filePath = UpyunHelper.BuildFilePath(1);
+            var url = UpyunHelper.UpLoad(uploadFileBytes, bucketType, filePath, fileName);
+            var rtnUrl = UpyunHelper.ProcessUrl(url, bucketType);
+            Result.OriginFileName = fileName;
+            Result.Url = rtnUrl;
+            Result.State = UploadState.Success;
         }
         catch (Exception e)
         {
@@ -115,6 +107,8 @@ public class UploadHandler : Handler
         {
             WriteResult();
         }
+
+
     }
 
     private void WriteResult()

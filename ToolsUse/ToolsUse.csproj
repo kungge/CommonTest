@@ -80,6 +80,11 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.2\lib\net45\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -131,12 +136,30 @@
     <Content Include="Plug\ueditor\ueditor.parse.min.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.uploadify\btnUpload2.png" />
+    <Content Include="scripts\jquery.uploadify\btnUpload3.png" />
+    <Content Include="scripts\jquery.uploadify\cancel.png" />
+    <Content Include="scripts\jquery.uploadify\expressInstall.swf" />
+    <Content Include="scripts\jquery.uploadify\jquery.uploadify.v2.1.0.js" />
+    <Content Include="scripts\jquery.uploadify\jquery.uploadify.v2.1.0.min.js" />
+    <Content Include="scripts\jquery.uploadify\S%29DOA`A%29Z%40}RUW2RP_F%25WQH.png" />
+    <Content Include="scripts\jquery.uploadify\swfobject.js" />
+    <Content Include="scripts\jquery.uploadify\uploadify.allglyphs.swf" />
+    <Content Include="scripts\jquery.uploadify\uploadify.css" />
+    <Content Include="scripts\jquery.uploadify\uploadify.swf" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CommonHelper\AjaxResult.cs" />
+    <Compile Include="CommonHelper\FileHelper.cs" />
+    <Compile Include="CommonHelper\JSON.cs" />
     <Compile Include="CommonHelper\UpYun.cs" />
+    <Compile Include="CommonHelper\UpyunHelper.cs" />
     <Compile Include="Controllers\UeditorController.cs" />
+    <Compile Include="Controllers\UploadifyController.cs" />
+    <Compile Include="Controllers\UpYunTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +185,9 @@
     <Content Include="Plug\ueditor\net\controller.ashx" />
     <Content Include="Plug\ueditor\net\README.md" />
     <Content Include="Plug\ueditor\net\Web.config" />
+    <Content Include="Views\UpYunTest\Index.cshtml" />
+    <Content Include="Views\Uploadify\Index.cshtml" />
+    <Content Include="Views\UpYunTest\Test1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,6 +203,7 @@
     <Folder Include="Plug\ueditor\lang\" />
     <Folder Include="Plug\ueditor\themes\" />
     <Folder Include="Plug\ueditor\third-party\" />
+    <Folder Include="upload\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -201,7 +228,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties Plug_4ueditor_4net_4config_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
