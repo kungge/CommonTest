@@ -9,6 +9,29 @@ namespace ToolsUse.CommonHelper
 {
     public static class FileHelper
     {
+        #region 配置
+        /// <summary>
+        /// 图片路径总目录
+        /// </summary>
+        public enum ImgType
+        {
+            others = 0,//其他
+            article = 1,//文章
+            gg = 2,//广告
+            bbs = 3//论坛
+        }
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public enum ZoneType
+        {
+            Photo,
+            Video,
+            File,
+            Avatar,
+        }
+        #endregion
+
         public static readonly List<string> ImageExtensions = new List<string> { ".jpg", ".jpeg", ".gif", ".png", ".giff", ".bmp" };
         public static readonly List<string> VideoextExtensions = new List<string> { ".avi",".flv",".mpeg",".rm", ".rmvb",".mpg",".3gp",".mp4",".mov",".mtv",".wmv",".amv" };
         public static readonly List<string> FileExtensions = new List<string> { ".txt", ".csv", ".xls", ".xlsx", ".doc", ".docx", ".pdf", ".wps", ".wpt", ".et", ".ett" };
@@ -116,27 +139,6 @@ namespace ToolsUse.CommonHelper
             uploadPath = uploadPath + "\\"+fileName;
             File.WriteAllBytes(uploadPath, SteamToBytes(stream));
             return uploadPath;
-        }
-
-        /// <summary>
-        /// 图片路径总目录
-        /// </summary>
-        public enum ImgType
-        {
-            others = 0,//其他
-            article = 1,//文章
-            gg = 2,//广告
-            bbs = 3//论坛
-        }
-        /// <summary>
-        /// 文件类型
-        /// </summary>
-        public enum ZoneType
-        {
-            Photo,
-            Video,
-            File,
-            Avatar,
         }
     }
 
