@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{352461BE-758E-4D4E-AE63-B6404B9FBEFA}</ProjectGuid>
+    <ProjectGuid>{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ToolsUse</RootNamespace>
-    <AssemblyName>ToolsUse</AssemblyName>
+    <RootNamespace>AspNetTech</RootNamespace>
+    <AssemblyName>AspNetTech</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,10 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentScheduler, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentScheduler.5.0.0\lib\net40\FluentScheduler.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -80,15 +76,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ServiceStack.Text, Version=4.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ServiceStack.Text.4.5.2\lib\net45\ServiceStack.Text.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -131,54 +118,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Plug\ueditor\index.html" />
-    <Content Include="Plug\ueditor\net\net.sln" />
-    <Content Include="Plug\ueditor\ueditor.all.js" />
-    <Content Include="Plug\ueditor\ueditor.all.min.js" />
-    <Content Include="Plug\ueditor\ueditor.config.js" />
-    <Content Include="Plug\ueditor\ueditor.parse.js" />
-    <Content Include="Plug\ueditor\ueditor.parse.min.js" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
-    <Content Include="scripts\jquery.uploadify\btnUpload2.png" />
-    <Content Include="scripts\jquery.uploadify\btnUpload3.png" />
-    <Content Include="scripts\jquery.uploadify\cancel.png" />
-    <Content Include="scripts\jquery.uploadify\expressInstall.swf" />
-    <Content Include="scripts\jquery.uploadify\jquery.uploadify.v2.1.0.js" />
-    <Content Include="scripts\jquery.uploadify\jquery.uploadify.v2.1.0.min.js" />
-    <Content Include="scripts\jquery.uploadify\S%29DOA`A%29Z%40}RUW2RP_F%25WQH.png" />
-    <Content Include="scripts\jquery.uploadify\swfobject.js" />
-    <Content Include="scripts\jquery.uploadify\uploadify.allglyphs.swf" />
-    <Content Include="scripts\jquery.uploadify\uploadify.css" />
-    <Content Include="scripts\jquery.uploadify\uploadify.swf" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="CommonHelper\AjaxResult.cs" />
-    <Compile Include="CommonHelper\FileHelper.cs" />
-    <Compile Include="CommonHelper\JSON.cs" />
-    <Compile Include="CommonHelper\UpYun.cs" />
-    <Compile Include="CommonHelper\UpyunHelper.cs" />
-    <Compile Include="Controllers\FluentSchedulerTestController.cs" />
-    <Compile Include="Controllers\UeditorController.cs" />
-    <Compile Include="Controllers\UploadifyController.cs" />
-    <Compile Include="Controllers\UpYunTestController.cs" />
+    <Compile Include="Controllers\CSRFTestController.cs" />
+    <Compile Include="Controllers\FilterTechController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Plug\ueditor\net\App_Code\Config.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\ConfigHandler.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\CrawlerHandler.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\Handler.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\ListFileHandler.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\NotSupportedHandler.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\PathFormater.cs" />
-    <Compile Include="Plug\ueditor\net\App_Code\UploadHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReferenceClass\FluentSchedulerReference.cs" />
-    <Compile Include="TestClass\FluentSchedulerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -186,16 +137,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
-    <Content Include="Views\Ueditor\Index.cshtml" />
-    <Content Include="Plug\ueditor\net\config.json" />
-    <Content Include="Plug\ueditor\net\controller.ashx" />
-    <Content Include="Plug\ueditor\net\README.md" />
-    <Content Include="Plug\ueditor\net\Web.config" />
-    <Content Include="Views\UpYunTest\Index.cshtml" />
-    <Content Include="Views\Uploadify\Index.cshtml" />
-    <Content Include="Views\UpYunTest\Test1.cshtml" />
-    <Content Include="Views\FluentSchedulerTest\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -205,13 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
     <Folder Include="Models\" />
-    <Folder Include="Plug\ueditor\dialogs\" />
-    <Folder Include="Plug\ueditor\lang\" />
-    <Folder Include="Plug\ueditor\themes\" />
-    <Folder Include="Plug\ueditor\third-party\" />
-    <Folder Include="upload\" />
+    <Folder Include="Views\CSRFTest\" />
+    <Folder Include="Views\FilterTech\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -226,9 +163,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>20569</DevelopmentServerPort>
+          <DevelopmentServerPort>59692</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:20569/</IISUrl>
+          <IISUrl>http://localhost:59692/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

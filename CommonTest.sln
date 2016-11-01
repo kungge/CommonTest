@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolsUse", "ToolsUse\ToolsU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProj", "DemoProj\DemoProj.csproj", "{A529E32B-1F8A-411E-868F-00E7C9DDB67B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetTech", "DotNetTech", "{30CB6161-2BC8-4492-BD37-752305D8C806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetTech", "AspNetTech\AspNetTech.csproj", "{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +99,10 @@ Global
 		{A529E32B-1F8A-411E-868F-00E7C9DDB67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A529E32B-1F8A-411E-868F-00E7C9DDB67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A529E32B-1F8A-411E-868F-00E7C9DDB67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,5 +110,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EF3E139E-2405-48AC-9785-0C50EF47B35C} = {728C36C0-5370-4A7B-8C71-2EE269B97EB5}
 		{EE5F886C-0E02-493B-A7C5-E3D41D26DB4E} = {728C36C0-5370-4A7B-8C71-2EE269B97EB5}
+		{26CC51FF-C7DE-4435-AFD2-0FD4A8A394CA} = {30CB6161-2BC8-4492-BD37-752305D8C806}
 	EndGlobalSection
 EndGlobal
