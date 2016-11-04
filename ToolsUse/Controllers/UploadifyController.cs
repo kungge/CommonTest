@@ -33,15 +33,15 @@ namespace ToolsUse.Controllers
                 return Json(AjaxResult.Error("文件过大"));
             }
             var fileExt=Path.GetExtension(file.FileName);
-            if (!FileHelper.ImageExtensions.Contains(fileExt))
+            if (!CloudFileHelper.ImageExtensions.Contains(fileExt))
             {
                 return Json(AjaxResult.Error("请上传图片格式的文件"));
             }
-            var fileType=FileHelper.GetFileType(fileExt);//文件类型
-            var buildFileName = FileHelper.BuildFileName(fileExt);//构建文件名称
-            var pathName = FileHelper.BuildPath(1);//构建文件路径
+            var fileType=CloudFileHelper.GetFileType(fileExt);//文件类型
+            var buildFileName = CloudFileHelper.BuildFileName(fileExt);//构建文件名称
+            var pathName = CloudFileHelper.BuildPath(1);//构建文件路径
             pathName = Server.MapPath("\\upload")+ pathName;
-            var physicalPath=FileHelper.UpLoad(file.InputStream,"",pathName, buildFileName);
+            var physicalPath=CloudFileHelper.UpLoad(file.InputStream,"",pathName, buildFileName);
 
             return Json(AjaxResult.Success(PhysicalToSiteUrl(physicalPath), "上传成功"));
         }

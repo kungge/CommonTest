@@ -39,7 +39,7 @@ namespace ToolsUse.Controllers
                 return Json(AjaxResult.Error("文件过大"));
             }
             var extensionName = Path.GetExtension(file.FileName);
-            if (!FileHelper.ImageExtensions.Contains(extensionName))
+            if (!CloudFileHelper.ImageExtensions.Contains(extensionName))
             {
                 return Json(AjaxResult.Error("请上传图片格式的文件"));
             }

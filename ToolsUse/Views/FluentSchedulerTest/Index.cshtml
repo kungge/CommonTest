@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<h2>FluentSchedulerTest_Index</h2>
+<div>
+    <form action="/FluentSchedulerTest/StartJob" method="post">
+        <input type="submit" value="任务开始" />
+    </form>
+    <br />
+    <form action="/FluentSchedulerTest/EndJob" method="post">
+        <input type="submit" value="任务结束" />
+    </form>
+</div>

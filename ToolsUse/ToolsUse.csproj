@@ -152,15 +152,19 @@
     <Content Include="scripts\jquery.uploadify\uploadify.allglyphs.swf" />
     <Content Include="scripts\jquery.uploadify\uploadify.css" />
     <Content Include="scripts\jquery.uploadify\uploadify.swf" />
+    <Content Include="Views\CYQVisualier\Index.cshtml" />
+    <Content Include="Views\FluentSchedulerTest\Index.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CommonHelper\AjaxResult.cs" />
+    <Compile Include="CommonHelper\CloudFileHelper.cs" />
     <Compile Include="CommonHelper\FileHelper.cs" />
     <Compile Include="CommonHelper\JSON.cs" />
     <Compile Include="CommonHelper\UpYun.cs" />
     <Compile Include="CommonHelper\UpyunHelper.cs" />
+    <Compile Include="Controllers\CYQVisualierController.cs" />
     <Compile Include="Controllers\FluentSchedulerTestController.cs" />
     <Compile Include="Controllers\UeditorController.cs" />
     <Compile Include="Controllers\UploadifyController.cs" />
@@ -195,7 +199,6 @@
     <Content Include="Views\UpYunTest\Index.cshtml" />
     <Content Include="Views\Uploadify\Index.cshtml" />
     <Content Include="Views\UpYunTest\Test1.cshtml" />
-    <Content Include="Views\FluentSchedulerTest\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -211,7 +214,7 @@
     <Folder Include="Plug\ueditor\lang\" />
     <Folder Include="Plug\ueditor\themes\" />
     <Folder Include="Plug\ueditor\third-party\" />
-    <Folder Include="upload\" />
+    <Folder Include="upload\testfile\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
