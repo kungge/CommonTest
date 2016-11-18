@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsyncTestController.cs" />
     <Compile Include="Controllers\CSRFTestController.cs" />
     <Compile Include="Controllers\FilterTechController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +138,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\AsyncTest\Download.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

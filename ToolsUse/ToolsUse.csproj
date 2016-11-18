@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentScheduler, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentScheduler.5.0.0\lib\net40\FluentScheduler.dll</HintPath>
       <Private>True</Private>
@@ -164,8 +168,10 @@
     <Compile Include="CommonHelper\JSON.cs" />
     <Compile Include="CommonHelper\UpYun.cs" />
     <Compile Include="CommonHelper\UpyunHelper.cs" />
+    <Compile Include="Controllers\AutoMapperTestController.cs" />
     <Compile Include="Controllers\CYQVisualierController.cs" />
     <Compile Include="Controllers\FluentSchedulerTestController.cs" />
+    <Compile Include="Controllers\LogTestController.cs" />
     <Compile Include="Controllers\UeditorController.cs" />
     <Compile Include="Controllers\UploadifyController.cs" />
     <Compile Include="Controllers\UpYunTestController.cs" />
@@ -199,6 +205,7 @@
     <Content Include="Views\UpYunTest\Index.cshtml" />
     <Content Include="Views\Uploadify\Index.cshtml" />
     <Content Include="Views\UpYunTest\Test1.cshtml" />
+    <Content Include="Views\LogTest\LogWan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,7 +221,9 @@
     <Folder Include="Plug\ueditor\lang\" />
     <Folder Include="Plug\ueditor\themes\" />
     <Folder Include="Plug\ueditor\third-party\" />
+    <Folder Include="upload\logFile\" />
     <Folder Include="upload\testfile\" />
+    <Folder Include="Views\AutoMapperTest\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
