@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentScheduler">
+      <HintPath>..\packages\FluentScheduler.5.0.0\lib\dotnet\FluentScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -425,10 +431,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CommonHelper\AjaxResult.cs" />
+    <Compile Include="CommonHelper\CloudFileHelper.cs" />
     <Compile Include="CommonHelper\FileHelper.cs" />
     <Compile Include="CommonHelper\JSON.cs" />
     <Compile Include="CommonHelper\UpYun.cs" />
     <Compile Include="CommonHelper\UpyunHelper.cs" />
+    <Compile Include="Controllers\AutoMapperTestController.cs" />
+    <Compile Include="Controllers\CYQVisualierController.cs" />
+    <Compile Include="Controllers\FluentSchedulerTestController.cs" />
+    <Compile Include="Controllers\LogTestController.cs" />
     <Compile Include="Controllers\UeditorController.cs" />
     <Compile Include="Controllers\UploadifyController.cs" />
     <Compile Include="Controllers\UpYunTestController.cs" />
@@ -444,6 +455,7 @@
     <Compile Include="Plug\ueditor\net\App_Code\PathFormater.cs" />
     <Compile Include="Plug\ueditor\net\App_Code\UploadHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClass\FluentSchedulerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -455,6 +467,10 @@
     <Content Include="Views\UpYunTest\Index.cshtml" />
     <Content Include="Views\Uploadify\Index.cshtml" />
     <Content Include="Views\UpYunTest\Test1.cshtml" />
+    <Content Include="README.md" />
+    <Content Include="Views\CYQVisualier\Index.cshtml" />
+    <Content Include="Views\FluentSchedulerTest\Index.cshtml" />
+    <Content Include="Views\LogTest\LogWan.cshtml" />
     <Content Include="Plug\ueditor\net\config.json" />
     <Content Include="Plug\ueditor\net\controller.ashx" />
     <Content Include="Plug\ueditor\net\README.md" />
@@ -463,7 +479,6 @@
     <Content Include="Plug\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="Plug\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Plug\ueditor\third-party\video-js\font\vjs.woff" />
-    <Content Include="README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -476,6 +491,7 @@
     <Folder Include="Content\" />
     <Folder Include="Models\" />
     <Folder Include="upload\" />
+    <Folder Include="Views\AutoMapperTest\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

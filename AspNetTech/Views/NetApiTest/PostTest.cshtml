@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "PostTest";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<script src="~/scripts/jquery-1.11.3.min.js"></script>
+
+<p>表单提交</p>
+<form id="fmData">
+    <input type="text" name="GuestName" placeholder="GuestName" value="刘强东" />
+    <input type="text" name="MobilePhone" placeholder="MobilePhone" value="13388882222" />
+    <input type="text" name="JoinCount" placeholder="JoinCount" value="3" />
+    <input type="text" name="GuestType" placeholder="GuestType" value="1" />
+    <input type="text" name="Remark" placeholder="Remark" value="到时一定到！！！" />
+</form>
+<br />
+<input type="button" value="js提交" onclick="JsSubmit()" />
+
+<script type="text/javascript">
+
+        function JsSubmit(){
+            var fmData=$('#fmData').serializeArray();
+            $.ajax({
+                Type: "POST",
+                url: "http://www.kungge.net/wxapi/Accept",
+                data:fmData,
+                dataType: "jsonp",
+                success: function (data) {
+                    //alert('29：'+JSON.stringify(data));
+                    alert('30:' + data.StatusCode + ' ' + data.Successful + ' ' + data.Message);
+                }
+            });
+        }
+
+
+</script>
+

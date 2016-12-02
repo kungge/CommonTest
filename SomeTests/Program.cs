@@ -38,6 +38,8 @@ namespace SomeTests
 
             #region jesse2013异步编程系列_async & await 的前世今生（Updated） 
             //refer：http://www.cnblogs.com/jesse2013/p/async-and-await.html
+
+            #region 创建线程
             ////****************************************创建线程********************
             //Console.WriteLine("Mian Start threadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //new Thread(Go).Start();// .NET 1.0开始就有的 
@@ -45,15 +47,17 @@ namespace SomeTests
             //Task.Run(new Action(Go));// .NET 4.5 新增了一个Run的方法
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
+            #endregion
 
-
+            #region 线程池
             ////****************************************线程池********************
             //Console.WriteLine("Mian Start，我是主线程：Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //ThreadPool.QueueUserWorkItem(Go);
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
+            #endregion
 
-
+            #region 传入参数
             ////****************************************传入参数********************
             //Console.WriteLine("Mian Start {0}",DateTime.Now.ToString("mm:ss.ffff"));
             //new Thread(Go).Start("arg1");// 没有匿名委托之前，我们只能这样传入一个object的参数
@@ -68,8 +72,9 @@ namespace SomeTests
             //});
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
+            #endregion
 
-
+            #region 返回值
             ////****************************************返回值********************
             //Console.WriteLine("Mian Start   Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //var rtn = Task.Run<string>(() => {
@@ -80,62 +85,74 @@ namespace SomeTests
             //Console.WriteLine("返回值={0} Thread Id={1}  {2}", rtn.Result, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
+            #endregion
 
-
+            #region 共享数据
             //****************************************共享数据 * *******************
             //new Thread(Done).Start();
             //new Thread(Done).Start();
             //*********************************
+            #endregion
 
-
+            #region 线程安全
             //****************************************线程安全********************
-            new Thread(Done).Start();
-            new Thread(Done).Start();
+            //new Thread(Done).Start();
+            //new Thread(Done).Start();
             //*********************************
+            #endregion
 
-
+            #region 锁
             //****************************************锁********************
             //new Thread(Done).Start();
             //new Thread(Done).Start();
             //*********************************
+            #endregion
 
-
+            #region Semaphore 信号量
             //****************************************Semaphore 信号量********************
             //for (int i = 1; i <= 5; i++)
             //{
             //    new Thread(Enter).Start(i);
             //}
             //*********************************
+            #endregion
 
-
+            #region 异常处理
             ////****************************************异常处理********************
-            ////try
-            ////{
-            ////    new Thread(Go).Start();
-            ////}
-            ////catch (Exception ex)
-            ////{
-            ////    // 其它线程里面的异常，我们这里面是捕获不到的。
-            ////    Console.WriteLine("Exception!");
-            ////}
+            //try
+            //{
+            //    new Thread(Go).Start();
+            //}
+            //catch (Exception ex)
+            //{
+            //    // 其它线程里面的异常，我们这里面是捕获不到的。
+            //    Console.WriteLine("Exception!");
+            //}
 
             //try
             //{
-            //    //var task=Task.Run(()=> { Go(); });
+            //    Console.WriteLine("Mian Start threadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+
+            //    //var task = Task.Run(() => { Go(); });
             //    //task.Wait();// 在调用了这句话之后，主线程才能捕获task里面的异常
+
+
 
             //    // 对于有返回值的Task, 我们接收了它的返回值就不需要再调用Wait方法了
             //    // GetName 里面的异常我们也可以捕获到
             //    var task2 = Task.Run(() => { return GetName(); });
             //    var r = task2.Result;
+
+            //    Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             //}
-            //catch(Exception ex)
+            //catch (Exception ex)
             //{
             //    Console.WriteLine("Exception!");
             //}
             ////*********************************
+            #endregion
 
-
+            #region 一个小例子认识async & await
             //****************************************一个小例子认识async & await********************
             //Console.WriteLine("Mian Start，Current Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //Test();// 这个方法其实是多余的, 本来可以直接写下面的方法
@@ -143,36 +160,43 @@ namespace SomeTests
             //// 但是由于控制台的入口方法不支持async,所有我们在入口方法里面不能 用 await
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
 
-
-
             //Console.WriteLine("Main Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //TestV2();
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             //*********************************
+            #endregion
 
+            #region 只有async方法在调用前才能加await么？
             ////*************************************只有async方法在调用前才能加await么？
             //Console.WriteLine("Main Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //TestV3();
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
+            #endregion
 
-
+            #region 不用await关键字，如何确认Task执行完毕了？
             ////*************************************不用await关键字，如何确认Task执行完毕了？
             //Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //var task = Task.Run(() => {
-            //    Console.WriteLine("Task.Run currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId,DateTime.Now.ToString("mm:ss.ffff"));
+
+            //var task = Task.Run(() =>
+            //{
+            //    Console.WriteLine("Task.Run currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //    return GetNameV4();
             //});
 
-            //task.GetAwaiter().OnCompleted(()=> {
+            //task.GetAwaiter().OnCompleted(() =>
+            //{
             //    Console.WriteLine("task.GetAwaiter().OnCompleted currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //    var name = task.Result;
             //    Console.WriteLine("My name is {0} currentThreadId={1}  {2}", name, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //});
+
             //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+
             ////*********************************
+            #endregion
 
-
+            #region Task如何让主线程挂起等待
             //*************************************Task如何让主线程挂起等待？
             //Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //var task = Task.Run(() => {
@@ -183,14 +207,17 @@ namespace SomeTests
             //Console.WriteLine("rtnStr={0} currentThreadId={1}  {2}", rtnStr, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //Console.WriteLine("Mian End 主线程执行完毕 {0}", DateTime.Now.ToString("mm:ss.ffff"));
             //*********************************
+            #endregion
 
+            #region 实质是在调用awaitable对象的GetResult方法
+            //*************************************await 实质是在调用awaitable对象的GetResult方法
+            Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
 
-            ////*************************************await 实质是在调用awaitable对象的GetResult方法
-            //Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //TestV5();
+            TestV5();
 
-            //Console.WriteLine("Mian End 主线程执行完毕 {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            ////*********************************
+            Console.WriteLine("Mian End 主线程执行完毕 {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //*********************************
+            #endregion
 
 
             #endregion
@@ -199,6 +226,7 @@ namespace SomeTests
             Console.ReadLine();
         }
 
+        #region 方法-await 实质是在调用awaitable对象的GetResult方法
         //*************************************await 实质是在调用awaitable对象的GetResult方法
         static async Task TestV5()
         {
@@ -225,115 +253,135 @@ namespace SomeTests
             Console.WriteLine("TestV5 end rtnStr={0} currentThreadId={1} {2} ", rtnStr2, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
         }
         //*********************************
+        #endregion
 
+        #region 方法-不用await关键字
         //*************************************不用await关键字，如何确认Task执行完毕了？
-        static string GetNameV4()
-        {
-            Console.WriteLine("GetNameV4 start currentThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            Console.WriteLine("另外一个线程在获取名称");
-            Thread.Sleep(2000);
-            Console.WriteLine("GetNameV4 end  {0} ", DateTime.Now.ToString("mm:ss.ffff"));
-            return "nice";
-        }
-        //*********************************
-
-
-        //*************************************只有async方法在调用前才能加await么？
-        static async void TestV3()
-        {
-            Console.WriteLine("TestV3 start {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            Task<string> task = Task.Run(() => {
-                Thread.Sleep(5000);
-                return "date1117";
-            });
-            string str = await task;//5 秒之后才会执行这里
-            Console.WriteLine("TestV3 end TestV3_str= {0} {1}", str,DateTime.Now.ToString("mm:ss.ffff"));
-        }
-        //*********************************
-
-        //****************************************一个小例子认识async & await********************
-        static async Task TestV2()
-        {
-            Console.WriteLine("Before calling GetNameV2, Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            var rtnName = GetNameV2();  //我们这里没有用 await,所以下面的代码可以继续执行
-            // 但是如果上面是 await GetName()，下面的代码就不会立即执行，输出结果就不一样了。
-            Console.WriteLine("End calling GetName.  {0}\r\n", DateTime.Now.ToString("mm:ss.ffff"));
-            Console.WriteLine("Get result from GetName: {0} {1}", await rtnName, DateTime.Now.ToString("mm:ss.ffff"));
-        }
-        static async Task<string> GetNameV2()
-        {
-            // 这里还是主线程
-            Console.WriteLine("Before calling Task.Run, current thread Id is: {0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            return await Task.Run(()=> {
-                Thread.Sleep(1000);
-                Console.WriteLine("'GetNameV2' Thread Id: {0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-                return "date1117";
-            });
-        }
-
-        static async Task GetName()
-        {
-            Console.WriteLine("GetName Start {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            await Task.Delay(1000);
-            Console.WriteLine("Current Thread Id :{0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            Console.WriteLine("In antoher thread.....");
-            Console.WriteLine("GetName End {0}", DateTime.Now.ToString("mm:ss.ffff"));
-        }
-        static async Task Test()
-        {
-            // 方法打上async关键字，就可以用await调用同样打上async的方法
-            // await 后面的方法将在另外一个线程中执行
-            await GetName();
-        }
-        //*********************************
-
-
-        ////****************************************异常处理********************
-        //static void Go() { throw null; }
-        //static string GetName() { throw null; }
-        ////*********************************
-
-
-        //****************************************Semaphore 信号量********************
-        static void Enter(object id)
-        {
-            Console.WriteLine("{0} 开始排队...{1}",id, DateTime.Now.ToString("mm:ss.ffff"));
-            _sem.Wait();
-            Console.WriteLine("{0} 开始执行...{1}", id, DateTime.Now.ToString("mm:ss.ffff"));
-            Thread.Sleep(1000*(int)id);
-            Console.WriteLine("{0} 执行完毕，离开！...{1}", id, DateTime.Now.ToString("mm:ss.ffff"));
-            _sem.Release();
-        }
-        //*********************************
-
-
-        ////****************************************锁********************
-        //static void Done()
+        //static string GetNameV4()
         //{
-        //    lock (_lock)
-        //    {
-        //        if (!_isDone)
-        //        {
-        //            Console.WriteLine("Done {0}", DateTime.Now.ToString("mm:ss.ffff"));// 猜猜这里面会被执行几次？
-        //            _isDone = true;
-        //        }
-        //    }
-
+        //    Console.WriteLine("GetNameV4 start currentThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    Console.WriteLine("另外一个线程在获取名称");
+        //    Thread.Sleep(2000);
+        //    Console.WriteLine("GetNameV4 end  {0} ", DateTime.Now.ToString("mm:ss.ffff"));
+        //    return "nice";
         //}
-        ////*********************************
+        //*********************************
+        #endregion
 
+        #region 方法-只有async方法在调用前才能加await么？
+        //*************************************只有async方法在调用前才能加await么？
+        //static async void TestV3()
+        //{
+        //    Console.WriteLine("TestV3 start，ThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    Task<string> task = Task.Run(() => {
+        //        Thread.Sleep(5000);
+        //        return "date1117";
+        //    });
+        //    string str = await task;//5 秒之后才会执行这里
+        //    Console.WriteLine("TestV3 end TestV3_str= {0} {1}", str,DateTime.Now.ToString("mm:ss.ffff"));
+        //}
+        //*********************************
+        #endregion
 
-        //****************************************线程安全********************
+        #region 方法-一个小例子认识async & await
+        //****************************************一个小例子认识async & await********************
+        //static async Task TestV2()
+        //{
+        //    Console.WriteLine("Before calling GetNameV2, Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    var rtnName = GetNameV2();  //我们这里没有用 await,所以下面的代码可以继续执行
+        //    // 但是如果上面是 await GetName()，下面的代码就不会立即执行，输出结果就不一样了。
+        //    Console.WriteLine("End calling GetName.  {0}\r\n", DateTime.Now.ToString("mm:ss.ffff"));
+        //    Console.WriteLine("Get result from GetName: {0} {1}", await rtnName, DateTime.Now.ToString("mm:ss.ffff"));
+        //}
+        //static async Task<string> GetNameV2()
+        //{
+        //    // 这里还是主线程
+        //    Console.WriteLine("Before calling Task.Run, current thread Id is: {0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    return await Task.Run(() =>
+        //    {
+        //        Thread.Sleep(1000);
+        //        Console.WriteLine("'GetNameV2' Thread Id: {0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //        return "date1117";
+        //    });
+        //}
+
+        //static async Task GetName()
+        //{
+        //    Console.WriteLine("GetName Start，Current Thread Id :{0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    await Task.Delay(1000);
+        //    Console.WriteLine("Current Thread Id :{0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    Console.WriteLine("In antoher thread.....");
+        //    Console.WriteLine("GetName End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+        //}
+        //static async Task Test()
+        //{
+        //    // 方法打上async关键字，就可以用await调用同样打上async的方法
+        //    // await 后面的方法将在另外一个线程中执行
+        //    await GetName();
+        //}
+        //*********************************
+        #endregion
+
+        #region 方法-异常处理
+        //****************************************异常处理********************
+        //static void Go()
+        //{
+        //    Console.WriteLine("Go start currentThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    throw null;
+        //}
+        //static string GetName()
+        //{
+        //    Console.WriteLine("GetName start currentThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //    throw null;
+        //}
+        //*********************************
+        #endregion
+
+        #region 方法-Semaphore 信号量
+        //****************************************Semaphore 信号量********************
+        //static void Enter(object id)
+        //{
+        //    Console.WriteLine("{0} 开始排队...{1}",id, DateTime.Now.ToString("mm:ss.ffff"));
+        //    _sem.Wait();
+        //    Console.WriteLine("{0} 开始执行...{1}", id, DateTime.Now.ToString("mm:ss.ffff"));
+        //    Thread.Sleep(1000*(int)id);
+        //    Console.WriteLine("{0} 执行完毕，离开！...{1}", id, DateTime.Now.ToString("mm:ss.ffff"));
+        //    _sem.Release();
+        //}
+        //*********************************
+        #endregion
+
+        #region 方法-锁
+        //****************************************锁********************
         static void Done()
         {
-            if (!_isDone)
+            lock (_lock)
             {
-                Console.WriteLine("Done ThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));// 猜猜这里面会被执行几次？
-                _isDone = true;
+                if (!_isDone)
+                {
+                    Console.WriteLine("Done {0}", DateTime.Now.ToString("mm:ss.ffff"));// 猜猜这里面会被执行几次？
+                    _isDone = true;
+                }
             }
+
         }
         //*********************************
+        #endregion
 
+        #region 方法-线程安全
+        //****************************************线程安全********************
+        //static void Done()
+        //{
+        //    if (!_isDone)
+        //    {
+        //        Console.WriteLine("Done ThreadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));// 猜猜这里面会被执行几次？
+        //        _isDone = true;
+        //    }
+        //}
+        //*********************************
+        #endregion
+
+        #region 方法-共享数据
         //****************************************共享数据********************
         //static void Done()
         //{
@@ -344,7 +392,9 @@ namespace SomeTests
         //    }
         //}
         //*********************************
+        #endregion
 
+        #region 方法-返回值
         //****************************************返回值********************
         public static string RtnSomeThing()
         {
@@ -355,8 +405,9 @@ namespace SomeTests
             return "Hello Boy！";
         }
         //*********************************
+        #endregion
 
-
+        #region 方法-创建线程
         //****************************************创建线程*********************
         //public static void Go()
         //{
@@ -366,28 +417,30 @@ namespace SomeTests
         //    Console.WriteLine("我是另一个线程 end threadId={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
         //}
         //*********************************
+        #endregion
 
-
+        #region 方法-线程池
         //****************************************线程池******************************
-        public static void Go(object data)
-        {
-            Console.WriteLine("我是另一个线程，Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-        }
+        //public static void Go(object data)
+        //{
+        //    Console.WriteLine("我是另一个线程，Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+        //}
         //*********************************
+        #endregion
 
-
+        #region 方法-传入参数
         //****************************************传入参数********************
         //public static void Go(object name)
         //{
         //    // TODO
         //    Console.WriteLine("Go {0} {1}",name, DateTime.Now.ToString("mm:ss.ffff"));
         //}
-
         //public static void GoGoGo(string arg1, string arg2, string arg3)
         //{
         //    // TODO
         //    Console.WriteLine("GoGoGo {0} {1} {2} {3}", arg1, arg2, arg3,DateTime.Now.ToString("mm:ss.ffff"));
         //}
         //*********************************
+        #endregion
     }
 }

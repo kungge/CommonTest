@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "TestApiProj";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<script src="~/scripts/jquery-1.11.3.min.js"></script>
+<p>嘉宾名单</p>
+<div id="guests"></div>
+
+<script type="text/javascript">
+    $(function () {
+        $(function () {
+            $.ajax({
+                Type: "GET",
+                url: "http://localhost:1202/api/weixin/GetGuest",
+                dataType: "jsonp",
+                success: ShowGuestInfo
+            });
+        });
+        function ShowGuestInfo(guests) {
+            $.each(guests.Data, function (index, contact) {
+                var html = "<ul>";
+                html += "<li>来宾: " + contact.GuestName + "</li>";
+                html += "<li>电话:" + contact.MobilePhone + "</li>";
+                html += "</ul>";
+                $("#guests").append($(html));
+            });
+        }
+    });
+</script>
+
+

@@ -118,6 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="HtmlPage\TmpTest.html" />
+    <Content Include="HtmlPage\XueHuaResult.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
