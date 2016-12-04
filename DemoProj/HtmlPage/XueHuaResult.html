@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <style>
+        body {
+            background: #eee;
+        }
+
+        @keyframes mysnow {
+            0% {
+                bottom: 100%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+                transform: rotate(720deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+                opacity: 0;
+                bottom: 0%;
+            }
+        }
+
+        .container {
+            position: fixed;
+        }
+
+        .pic {
+            position: absolute;
+            opacity: 0;
+            animation: mysnow 5s;
+            height: 30px;
+        }
+    </style> 
+</head>
+<body>
+    <div id="snowFlow">
+    </div> 
+
+    <script type="text/javascript">
+        window.onload = function () {
+            // snowFlow();
+            function snowFlow(left, height, src) {
+                var container = document.createElement('div');
+                var pic = document.createElement('img');
+                var snowFlow = document.getElementById('snowFlow');
+                pic.className = 'pic';
+                container.className = 'container';
+                snowFlow.appendChild(container);
+                container.appendChild(pic);
+                container.style.left = left + 'px';
+                container.style.height = height + 'px';
+                pic.src = src;
+                setTimeout(function () {
+                    snowFlow.removeChild(container);
+                }, 5000);
+            }
+            setInterval(function () {
+                var left = Math.random() * window.innerWidth;
+                var height = Math.random() * window.innerHeight;
+                var src = 'snow.png';
+                snowFlow(left, height, src);
+            }, 500)
+
+        }
+    </script>
+
+</body>
+</html>
