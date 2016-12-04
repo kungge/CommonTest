@@ -146,7 +146,6 @@
     <Compile Include="Controllers\AsyncTestController.cs" />
     <Compile Include="Controllers\CSRFTestController.cs" />
     <Compile Include="Controllers\FilterTechController.cs" />
-    <Compile Include="Controllers\NetApiTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
