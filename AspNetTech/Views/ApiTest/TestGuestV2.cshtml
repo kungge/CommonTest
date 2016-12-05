@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "TestGuestV2";
+}
+
+<h2>TestGuestV2</h2>
+<script src="~/scripts/jquery-1.11.3.min.js"></script>
+<p>嘉宾名单</p>
+<div id="guests"></div>
+
+<script type="text/javascript">
+    $(function () {
+        $(function () {
+            $.ajax({
+                Type: "GET",
+                url: "http://www.kungge.net/wxapi/guestv1",
+                dataType: "jsonp",
+                jsonpCallback:"getGuest",
+                success: ShowGuestInfo
+            });
+        });
+        function ShowGuestInfo(guests) {
+            $.each(guests.Data, function (index, contact) {
+                var html = "<ul>";
+                html += "<li>来宾: " + contact.GuestName + "</li>";
+                html += "<li>电话:" + contact.MobilePhone + "</li>";
+                html += "</ul>";
+                $("#guests").append($(html));
+            });
+        }
+    });
+</script>
+
