@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "TestGuestV1";
+}
+<h2>TestGuestV1</h2>
+
+<script type="text/javascript">
+    function procGuest(data) {
+        alert(data.StatusCode);
+    }
+</script>
+<script src="http://www.kungge.net/wxapi/guestv2?callback=procGuest"></script>
+@*<script src="http://www.kungge.net/wxapi/guestv1?callback=procGuest"></script>*@
+
+
+
