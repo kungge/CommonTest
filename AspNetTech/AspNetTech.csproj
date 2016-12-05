@@ -186,6 +186,7 @@
     <Content Include="Views\ApiTest\TestGuestV1.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ApiTest\TestGuestV2.cshtml" />
+    <Content Include="Views\ApiTest\TestProductV1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

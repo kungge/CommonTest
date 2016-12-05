@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div class="main-content">
+        <div>
+            <h1>All Products</h1>
+            <ul id="products" />
+        </div>
+        <div>
+            <label for="prodId">ID:</label>
+            <input type="text" id="prodId" size="5" />
+            <input type="button" value="Search" onclick="find();" />
+            <p id="product" />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        // Send an AJAX request
+        // 发送AJAX请求
+        //$.getJSON("http://localhost:12051/api/Products",
+        //function (data) {
+        //    // On success, 'data' contains a list of products.
+        //    // 成功时，'data'含有一组产品列表
+        //    $.each(data, function (key, val) {
+        //        // Format the text to display.
+        //        // 格式化文本，以便显示
+        //        var str = val.Name + ': $' + val.Price;
+        //        // Add a list item for the product.
+        //        // 添加一个产品列表项
+        //        $('<li/>', { text: str })
+        //        .appendTo($('#products'));
+        //    });
+        //});
+
+        $.ajax({
+            Type: "GET",
+            url: "http://localhost:12051/api/Products",
+            dataType: "jsonp",
+            success: ShowProducts
+        });
+
+        function ShowProducts(products) {
+            alert('55:' + JSON.stringify(products.Data));
+            $.each(data, function (key, val) {
+                var str = val.Name + ': $' + val.Price;
+                $('<li/>', { text: str })
+                .appendTo($('#products'));
+            });
+        }
+
+    });
+
+
+
+    function find() {
+        var id = $('#prodId').val();
+        $.getJSON("/api/products/" + id,
+            function (data) {
+                var str = data.Name + ': $' + data.Price;
+                $('#product').text(str);
+            })
+        .fail(
+            function (jqXHR, textStatus, err) {
+                $('#product').text('Error: ' + err);
+            });
+    }
+    </script>
+</body>
+</html>

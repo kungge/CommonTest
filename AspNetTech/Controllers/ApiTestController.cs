@@ -23,5 +23,12 @@ namespace AspNetTech.Controllers
         {
             return View();
         }
+
+        #region 调用apiProj
+        public ActionResult TestProductV1()
+        {
+            return View();
+        }
+        #endregion
     }
 }
