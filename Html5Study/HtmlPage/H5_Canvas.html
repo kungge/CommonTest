@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>H5 Canvas</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <canvas id="canvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
+    <canvas id="canvas2" width="200" height="100" style="border:1px solid #000000;"></canvas>
+    <canvas id="canvas3" width="200" height="100" style="border:1px solid #000000;"></canvas>
+    <canvas id="canvas4" width="200" height="100" style="border:1px solid #000000;"></canvas>
+    <canvas id="canvas5" width="400" height="200" style="border:1px solid #000000;"></canvas>
+    <canvas id="canvas6" width="400" height="300" style="border:1px solid #000000;"></canvas>
+
+
+    <img id="img1" src="girlUpDog.png" width="170" height="200">
+    <canvas id="canvas7" width="400" height="300" style="border:1px solid #000000;"></canvas>
+
+    <script type="text/javascript">
+        //**************************************************绘制矩形 fillRect(x,y,width,height) 
+        var canvas1 = document.getElementById("canvas1");
+        var context1 = canvas1.getContext("2d");
+        context1.fillStyle = "#FF0000";
+        context1.fillRect(0, 10, 150, 60);
+        //**********************************************
+
+        //*************************************************绘制直线
+        var canvas2 = document.getElementById("canvas2");
+        var context2 = canvas2.getContext("2d");
+        context2.moveTo(0, 0);
+        context2.lineTo(200, 100);
+        context2.stroke();
+        //**********************************************
+
+        //*************************************************绘制园 arc(x,y,r,start,stop)
+        var canvas3= document.getElementById("canvas3");
+        var context3 = canvas3.getContext("2d");
+        context3.beginPath();
+        context3.arc(100,50,40,0,2*Math.PI);
+        context3.stroke();
+        //**********************************************
+
+        //***********************绘制文本  fillText(text,x,y) - 在 canvas 上绘制实心的文本  strokeText(text,x,y) - 在 canvas 上绘制空心的文本
+        var canvas4 = document.getElementById("canvas4");
+        var context4 = canvas4.getContext("2d");
+        context4.font = "25px Arial";
+        context4.fillText("实心文本", 10, 30);
+        context4.strokeText("空心文本", 10, 60);
+        //**********************************************
+
+        //*********************绘制渐变 createLinearGradient(x,y,x1,y1) - 创建线条渐变   createRadialGradient(x,y,r,x1,y1,r1) - 创建一个径向/圆渐变
+        //1.线性渐变
+        var canvas5 = document.getElementById("canvas5");
+        var context5 = canvas5.getContext("2d");
+        // Create gradient
+        var grd = context5.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "blue");
+        grd.addColorStop(1, "white");
+        // Fill with gradient
+        context5.fillStyle = grd;
+        context5.fillRect(50, 50, 200, 80);
+
+        //2.径向/圆渐变
+        var canvas6 = document.getElementById("canvas6");
+        var context6 = canvas6.getContext("2d");
+        var grd2 = context6.createRadialGradient(75, 50, 5, 90, 60, 100);
+        grd2.addColorStop(0, "gold");
+        grd2.addColorStop(1, "white");
+        context6.fillStyle = grd2;
+        context6.fillRect(10, 10, 150, 80);
+
+
+        //**********************************************
+
+
+        //********************************图像 drawImage(image,x,y)
+        var canvas7 = document.getElementById("canvas7");
+        var context7 = canvas7.getContext("2d");
+        var img1 = document.getElementById("img1");
+        img1.onload = function () {
+            context7.drawImage(img1, 30, 10);
+        }
+       
+        //**********************************************
+
+
+
+    </script>
+</body>
+</html>

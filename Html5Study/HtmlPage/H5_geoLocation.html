@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <p id="pShowInfo">获取当前地理位置坐标</p>
+    <button onclick="getCurrentLocation()">获取</button>
+    <div id="mapholder"></div>
+    <script type="text/javascript">
+        var pShow = document.getElementById("pShowInfo");
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                //navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+
+                //navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                pShow.innerHTML = "该浏览器不支持获取地理位置";
+            }
+        }
+        function showPosition(position) {
+            alert(position.coords.latitude + ' ' + position.coords.longitude);
+            pShow.innerHTML = "维度：" + position.coords.latitude + "，经度：" + position.coords.longitude;
+
+            //在google地图中显示结果
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+            var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    + latlon + "&zoom=14&size=400x300&sensor=false";
+            document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "'>";
+        }
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    pShow.innerHTML = "用户拒绝对获取地理位置的请求。"
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    pShow.innerHTML = "位置信息是不可用的。"
+                    break;
+                case error.TIMEOUT:
+                    pShow.innerHTML = "请求用户地理位置超时。"
+                    break;
+                case error.UNKNOWN_ERROR:
+                    pShow.innerHTML = "未知错误。"
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
