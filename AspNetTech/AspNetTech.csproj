@@ -139,6 +139,9 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\jquery-1.11.3.min.js" />
     <Content Include="Views\AsyncTest\Download.cshtml" />
+    <Content Include="Views\NetApiTest\GuestDemo.cshtml" />
+    <Content Include="Views\NetApiTest\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -158,10 +161,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
-    <Content Include="Views\NetApiTest\Index.cshtml" />
     <Content Include="Views\NetApiTest\PostTest.cshtml" />
-    <Content Include="Views\NetApiTest\GuestDemo.cshtml" />
     <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="apiapp.json" />
     <None Include="Properties\PublishProfiles\kvcustomconfig.pubxml" />
