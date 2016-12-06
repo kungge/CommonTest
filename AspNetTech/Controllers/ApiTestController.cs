@@ -14,6 +14,7 @@ namespace AspNetTech.Controllers
             return View();
         }
 
+        #region 调用MVC
         public ActionResult TestGuestV1()
         {
             return View();
@@ -23,6 +24,7 @@ namespace AspNetTech.Controllers
         {
             return View();
         }
+        #endregion
 
         #region 调用apiProj
         public ActionResult TestProductV1()

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>宾客接受模拟请求</title>
+	<meta charset="utf-8" />
+    <script src="../../scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <h2>接受邀请模拟</h2>
+
+    <p>嘉宾名单</p>
+    <div id="guests"></div>
+
+    <p>表单提交</p>
+    <form id="fmData">
+        <table>
+            <tr><td>姓名</td><td><input type="text" name="GuestName" placeholder="GuestName" value="刘强东" /></td></tr>
+            <tr><td>手机</td><td><input type="text" name="MobilePhone" placeholder="MobilePhone" value="13388882222" /></td></tr>
+            <tr><td>参与人数</td><td><input type="text" name="JoinCount" placeholder="JoinCount" value="3" /></td></tr>
+            <tr><td>宾客类型</td><td><input type="text" name="GuestType" placeholder="GuestType" value="1" /></td></tr>
+            <tr><td>备注</td><td><input type="text" name="Remark" placeholder="Remark" value="到时一定到！！！" /></td></tr>
+            <tr><td colspan="2"><input type="button" value="接受" onclick="JsSubmit()" /></td></tr>
+        </table>
+    </form>
+
+    <script type="text/javascript">
+
+    $(function () {
+        $(function () {
+            $.ajax({
+                Type: "GET",
+                url: "http://www.kungge.com/wxapi/guest",
+                dataType: "jsonp",
+                success: ShowGuestInfo
+            });
+
+        });
+        function ShowGuestInfo(guests) {
+            $.each(guests.Data, function (index, contact) {
+                var html = "<ul>";
+                html += "<li>来宾: " + contact.GuestName + "</li>";
+                html += "<li>电话:" + contact.MobilePhone + "</li>";
+                html += "</ul>";
+                $("#guests").append($(html));
+            });
+        }
+    });
+
+    function JsSubmit() {
+        var fmData = $('#fmData').serializeArray();
+        $.ajax({
+            Type: "GET",
+            url: "http://www.kungge.com/wxapi/Accept",
+            data: fmData,
+            dataType: "jsonp",
+            success: function (data) {
+                if (data.StatusCode == 100) {
+                    alert(data.Message);
+                    //location.reload();
+                    location.href = "/HtmlPage/WxApiTest/WishTestV1.html";
+                } else if (data.StatusCode == 301) {
+                    alert('提交失败：' + data.Message);
+                } else {
+                    alert('提交失败：系统错误，请联系管理员！');
+                }
+            }
+        });
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>宾客祝福</title>
+	<meta charset="utf-8" />
+    <script src="../../scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+
+    <p>嘉宾祝福</p>
+    <div id="wishes"></div>
+
+    <p>祝福语表单提交</p>
+    <input type="hidden" id="hdIsValid" value="0" />
+    <p>
+        当前用户：<span id="spanCurrentGuest"></span>
+    </p>
+  
+    <form id="wishFmData" action="">
+        <textarea name="WishWords" cols="30" rows="10" >
+        </textarea>
+    </form>
+    <br />
+    <input type="button" value="祝福" onclick="WishSubmit()" />
+
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajax({
+                Type: "GET",
+                url: "http://www.kungge.com/wxapi/valid",
+                dataType: "jsonp",
+                success: function (data) {
+                    if (data.StatusCode == 100) {//合法用户
+                        $('#spanCurrentGuest').text(data.Data.GuestName);
+                    } else {
+                        alert("未登录");
+                    }
+                }
+            });
+
+            $.ajax({
+                Type: "GET",
+                url: "http://www.kungge.com/wxapi/getwish/1",
+                dataType: "jsonp",
+                success: ShowWishInfo
+            });
+
+            function ShowWishInfo(wishes) {
+                $.each(wishes.Data, function (index, wish) {
+                    var html = "<ul>";
+                    html += "<li>宾客: " + wish.GuestName + "</li>";
+                    html += "<li>祝福:" + wish.WishWords + "</li>";
+                    html += "</ul>";
+                    $("#wishes").append($(html));
+                });
+            }
+
+        });
+
+        function WishSubmit() {
+            var fmData = $('#wishFmData').serializeArray();
+            $.ajax({
+                Type: "GET",
+                url: "http://www.kungge.com/wxapi/wish",
+                data: fmData,
+                dataType: "jsonp",
+                success: function (data) {
+                    if (data.StatusCode == 100) {
+                        alert('提交成功');
+                        location.reload();
+                    } else if (data.StatusCode == 401) {
+                        alert('提交失败：请先接受邀请！' );
+                    } else if (data.StatusCode == 301) {
+                        alert('提交失败：！' + data.Message);
+                    } else {
+                        alert('提交失败：系统错误，请联系管理员！');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
