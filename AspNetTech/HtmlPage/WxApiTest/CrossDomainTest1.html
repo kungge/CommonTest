@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript">
+          //回调函数
+        var getGuest = function (data) {
+            alert(JSON.stringify(data));
+            alert("statuscode=" + data.StatusCode);
+        };
+        var url = "http://www.kungge.com/wxapi/guestv1?callback=getGuest";
+    // 创建script标签，设置其属性
+    var script = document.createElement('script');
+    script.setAttribute('src', url);
+    // 把script标签加入head，调用开始
+    document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

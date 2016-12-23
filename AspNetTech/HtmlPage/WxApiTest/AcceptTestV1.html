@@ -21,6 +21,7 @@
             <tr><td>宾客类型</td><td><input type="text" name="GuestType" placeholder="GuestType" value="1" /></td></tr>
             <tr><td>备注</td><td><input type="text" name="Remark" placeholder="Remark" value="到时一定到！！！" /></td></tr>
             <tr><td colspan="2"><input type="button" value="接受" onclick="JsSubmit()" /></td></tr>
+            <tr><td colspan="2"><input type="button" value="接受V2" onclick="JsSubmitV2()" /></td></tr>
         </table>
     </form>
 
@@ -30,7 +31,7 @@
         $(function () {
             $.ajax({
                 Type: "GET",
-                url: "http://www.kungge.com/wxapi/guest",
+                url: "http://www.kungge.net/wxapi/guest",
                 dataType: "jsonp",
                 success: ShowGuestInfo
             });
@@ -51,9 +52,30 @@
         var fmData = $('#fmData').serializeArray();
         $.ajax({
             Type: "GET",
-            url: "http://www.kungge.com/wxapi/Accept",
+            url: "http://www.kungge.net/wxapi/Accept",
             data: fmData,
             dataType: "jsonp",
+            success: function (data) {
+                if (data.StatusCode == 100) {
+                    alert(data.Message);
+                    //location.reload();
+                    location.href = "/HtmlPage/WxApiTest/WishTestV1.html";
+                } else if (data.StatusCode == 301) {
+                    alert('提交失败：' + data.Message);
+                } else {
+                    alert('提交失败：系统错误，请联系管理员！');
+                }
+            }
+        });
+    }
+
+    function JsSubmitV2() {
+        var fmData = $('#fmData').serializeArray();
+        $.ajax({
+            Type: "GET",
+            url: "http://www.kungge.com/wxapi/AcceptV2",
+            data: fmData,
+            dataType: "json",
             success: function (data) {
                 if (data.StatusCode == 100) {
                     alert(data.Message);

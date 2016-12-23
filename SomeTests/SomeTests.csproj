@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,12 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyInjection\Willick\DefaultDiscountHelpe.cs" />
+    <Compile Include="DependencyInjection\Willick\IDiscountHelper.cs" />
+    <Compile Include="DependencyInjection\Willick\IterativeValueCalculator.cs" />
+    <Compile Include="DependencyInjection\Willick\IValueCalculator.cs" />
+    <Compile Include="DependencyInjection\Willick\LimitShoppingCart.cs" />
+    <Compile Include="DependencyInjection\Willick\LinqValueCalculator.cs" />
+    <Compile Include="DependencyInjection\Willick\Product.cs" />
+    <Compile Include="DependencyInjection\Willick\ShoppingCart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

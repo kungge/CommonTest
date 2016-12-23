@@ -140,6 +140,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="HtmlPage\WxApiTest\AcceptTestV1.html" />
+    <Content Include="HtmlPage\WxApiTest\CrossDomainTest1.html" />
     <Content Include="HtmlPage\WxApiTest\WishTestV1.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -151,6 +152,7 @@
     <Content Include="scripts\jquery-1.11.3.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Views\AsyncTest\Download.cshtml" />
+    <Content Include="Views\JSCodeSkill\Index.cshtml" />
     <Content Include="Views\NetApiTest\GuestDemo.cshtml" />
     <Content Include="Views\NetApiTest\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
@@ -161,7 +163,9 @@
     <Compile Include="Controllers\ApiTestController.cs" />
     <Compile Include="Controllers\AsyncTestController.cs" />
     <Compile Include="Controllers\CSRFTestController.cs" />
+    <Compile Include="Controllers\DITestController.cs" />
     <Compile Include="Controllers\FilterTechController.cs" />
+    <Compile Include="Controllers\JSCodeSkillController.cs" />
     <Compile Include="Controllers\NetApiTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,8 +202,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DependencyInjection\Willick\" />
     <Folder Include="Models\" />
     <Folder Include="Views\CSRFTest\" />
+    <Folder Include="Views\DITest\" />
     <Folder Include="Views\FilterTech\" />
   </ItemGroup>
   <PropertyGroup>

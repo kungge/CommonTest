@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+    //url param 拼接
+    var queryStr = ["source=1", "user=kw"];
+    var test = 1;
+    if (test == 1) {
+        queryStr=queryStr.concat("t=news");
+    } else {
+        queryStr=queryStr.concat("t=event");
+    }
+    queryStr = queryStr.join("&");
+    alert(queryStr);
+    
+</script>
+
+</body>
+</html>

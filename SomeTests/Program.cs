@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ninject;
+using SomeTests.DependencyInjection.Willick;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -39,192 +41,247 @@ namespace SomeTests
             #region jesse2013异步编程系列_async & await 的前世今生（Updated） 
             //refer：http://www.cnblogs.com/jesse2013/p/async-and-await.html
 
-            #region 创建线程
-            ////****************************************创建线程********************
-            //Console.WriteLine("Mian Start threadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //new Thread(Go).Start();// .NET 1.0开始就有的 
-            //Task.Factory.StartNew(Go);// .NET 4.0 引入了 TPL
-            //Task.Run(new Action(Go));// .NET 4.5 新增了一个Run的方法
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //#region 创建线程
+            //////****************************************创建线程********************
+            ////Console.WriteLine("Mian Start threadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////new Thread(Go).Start();// .NET 1.0开始就有的 
+            ////Task.Factory.StartNew(Go);// .NET 4.0 引入了 TPL
+            ////Task.Run(new Action(Go));// .NET 4.5 新增了一个Run的方法
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //////*********************************
+            //#endregion
+
+            //#region 线程池
+            //////****************************************线程池********************
+            ////Console.WriteLine("Mian Start，我是主线程：Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////ThreadPool.QueueUserWorkItem(Go);
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //////*********************************
+            //#endregion
+
+            //#region 传入参数
+            //////****************************************传入参数********************
+            ////Console.WriteLine("Mian Start {0}",DateTime.Now.ToString("mm:ss.ffff"));
+            ////new Thread(Go).Start("arg1");// 没有匿名委托之前，我们只能这样传入一个object的参数
+            ////new Thread(delegate() {//有了匿名委托
+            ////    GoGoGo("arg11","arg12","arg13");
+            ////});
+            ////new Thread(()=> {//Lambada
+            ////    GoGoGo("arg111", "arg112", "arg113");
+            ////}).Start();
+            ////Task.Run(() => {// Task能这么灵活，也是因为有了Lambda呀
+            ////    GoGoGo("arg1111", "arg1112", "arg1113");
+            ////});
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //////*********************************
+            //#endregion
+
+            //#region 返回值
+            //////****************************************返回值********************
+            ////Console.WriteLine("Mian Start   Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////var rtn = Task.Run<string>(() => {
+            ////    Console.WriteLine("Task.Run Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////    return RtnSomeThing();
+            ////});
+            ////Console.WriteLine("after Task.Run Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////Console.WriteLine("返回值={0} Thread Id={1}  {2}", rtn.Result, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //////*********************************
+            //#endregion
+
+            //#region 共享数据
+            ////****************************************共享数据 * *******************
+            ////new Thread(Done).Start();
+            ////new Thread(Done).Start();
             ////*********************************
-            #endregion
+            //#endregion
 
-            #region 线程池
-            ////****************************************线程池********************
-            //Console.WriteLine("Mian Start，我是主线程：Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //ThreadPool.QueueUserWorkItem(Go);
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //#region 线程安全
+            ////****************************************线程安全********************
+            ////new Thread(Done).Start();
+            ////new Thread(Done).Start();
             ////*********************************
-            #endregion
+            //#endregion
 
-            #region 传入参数
-            ////****************************************传入参数********************
-            //Console.WriteLine("Mian Start {0}",DateTime.Now.ToString("mm:ss.ffff"));
-            //new Thread(Go).Start("arg1");// 没有匿名委托之前，我们只能这样传入一个object的参数
-            //new Thread(delegate() {//有了匿名委托
-            //    GoGoGo("arg11","arg12","arg13");
-            //});
-            //new Thread(()=> {//Lambada
-            //    GoGoGo("arg111", "arg112", "arg113");
-            //}).Start();
-            //Task.Run(() => {// Task能这么灵活，也是因为有了Lambda呀
-            //    GoGoGo("arg1111", "arg1112", "arg1113");
-            //});
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //#region 锁
+            ////****************************************锁********************
+            ////new Thread(Done).Start();
+            ////new Thread(Done).Start();
             ////*********************************
-            #endregion
+            //#endregion
 
-            #region 返回值
-            ////****************************************返回值********************
-            //Console.WriteLine("Mian Start   Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //var rtn = Task.Run<string>(() => {
-            //    Console.WriteLine("Task.Run Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //    return RtnSomeThing();
-            //});
-            //Console.WriteLine("after Task.Run Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //Console.WriteLine("返回值={0} Thread Id={1}  {2}", rtn.Result, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //#region Semaphore 信号量
+            ////****************************************Semaphore 信号量********************
+            ////for (int i = 1; i <= 5; i++)
+            ////{
+            ////    new Thread(Enter).Start(i);
+            ////}
             ////*********************************
-            #endregion
+            //#endregion
 
-            #region 共享数据
-            //****************************************共享数据 * *******************
-            //new Thread(Done).Start();
-            //new Thread(Done).Start();
-            //*********************************
-            #endregion
+            //#region 异常处理
+            //////****************************************异常处理********************
+            ////try
+            ////{
+            ////    new Thread(Go).Start();
+            ////}
+            ////catch (Exception ex)
+            ////{
+            ////    // 其它线程里面的异常，我们这里面是捕获不到的。
+            ////    Console.WriteLine("Exception!");
+            ////}
 
-            #region 线程安全
-            //****************************************线程安全********************
-            //new Thread(Done).Start();
-            //new Thread(Done).Start();
-            //*********************************
-            #endregion
+            ////try
+            ////{
+            ////    Console.WriteLine("Mian Start threadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
 
-            #region 锁
-            //****************************************锁********************
-            //new Thread(Done).Start();
-            //new Thread(Done).Start();
-            //*********************************
-            #endregion
-
-            #region Semaphore 信号量
-            //****************************************Semaphore 信号量********************
-            //for (int i = 1; i <= 5; i++)
-            //{
-            //    new Thread(Enter).Start(i);
-            //}
-            //*********************************
-            #endregion
-
-            #region 异常处理
-            ////****************************************异常处理********************
-            //try
-            //{
-            //    new Thread(Go).Start();
-            //}
-            //catch (Exception ex)
-            //{
-            //    // 其它线程里面的异常，我们这里面是捕获不到的。
-            //    Console.WriteLine("Exception!");
-            //}
-
-            //try
-            //{
-            //    Console.WriteLine("Mian Start threadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-
-            //    //var task = Task.Run(() => { Go(); });
-            //    //task.Wait();// 在调用了这句话之后，主线程才能捕获task里面的异常
+            ////    //var task = Task.Run(() => { Go(); });
+            ////    //task.Wait();// 在调用了这句话之后，主线程才能捕获task里面的异常
 
 
 
-            //    // 对于有返回值的Task, 我们接收了它的返回值就不需要再调用Wait方法了
-            //    // GetName 里面的异常我们也可以捕获到
-            //    var task2 = Task.Run(() => { return GetName(); });
-            //    var r = task2.Result;
+            ////    // 对于有返回值的Task, 我们接收了它的返回值就不需要再调用Wait方法了
+            ////    // GetName 里面的异常我们也可以捕获到
+            ////    var task2 = Task.Run(() => { return GetName(); });
+            ////    var r = task2.Result;
 
-            //    Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("Exception!");
-            //}
+            ////    Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            ////}
+            ////catch (Exception ex)
+            ////{
+            ////    Console.WriteLine("Exception!");
+            ////}
+            //////*********************************
+            //#endregion
+
+            //#region 一个小例子认识async & await
+            ////****************************************一个小例子认识async & await********************
+            ////Console.WriteLine("Mian Start，Current Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////Test();// 这个方法其实是多余的, 本来可以直接写下面的方法
+            ////// await GetName()  
+            ////// 但是由于控制台的入口方法不支持async,所有我们在入口方法里面不能 用 await
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+
+            ////Console.WriteLine("Main Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////TestV2();
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
-            #endregion
+            //#endregion
 
-            #region 一个小例子认识async & await
-            //****************************************一个小例子认识async & await********************
-            //Console.WriteLine("Mian Start，Current Thread Id={0} {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //Test();// 这个方法其实是多余的, 本来可以直接写下面的方法
-            //// await GetName()  
-            //// 但是由于控制台的入口方法不支持async,所有我们在入口方法里面不能 用 await
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //#region 只有async方法在调用前才能加await么？
+            //////*************************************只有async方法在调用前才能加await么？
+            ////Console.WriteLine("Main Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////TestV3();
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            //////*********************************
+            //#endregion
 
-            //Console.WriteLine("Main Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //TestV2();
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            //*********************************
-            #endregion
+            //#region 不用await关键字，如何确认Task执行完毕了？
+            //////*************************************不用await关键字，如何确认Task执行完毕了？
+            ////Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
 
-            #region 只有async方法在调用前才能加await么？
-            ////*************************************只有async方法在调用前才能加await么？
-            //Console.WriteLine("Main Thread Id: {0}  {1}\r\n", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //TestV3();
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+            ////var task = Task.Run(() =>
+            ////{
+            ////    Console.WriteLine("Task.Run currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////    return GetNameV4();
+            ////});
+
+            ////task.GetAwaiter().OnCompleted(() =>
+            ////{
+            ////    Console.WriteLine("task.GetAwaiter().OnCompleted currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////    var name = task.Result;
+            ////    Console.WriteLine("My name is {0} currentThreadId={1}  {2}", name, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////});
+
+            ////Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
+
+            //////*********************************
+            //#endregion
+
+            //#region Task如何让主线程挂起等待
+            ////*************************************Task如何让主线程挂起等待？
+            ////Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////var task = Task.Run(() => {
+            ////    Console.WriteLine("Task.Run currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////    return GetNameV4();
+            ////});
+            ////var rtnStr=task.GetAwaiter().GetResult();
+            ////Console.WriteLine("rtnStr={0} currentThreadId={1}  {2}", rtnStr, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
+            ////Console.WriteLine("Mian End 主线程执行完毕 {0}", DateTime.Now.ToString("mm:ss.ffff"));
             ////*********************************
-            #endregion
+            //#endregion
 
-            #region 不用await关键字，如何确认Task执行完毕了？
-            ////*************************************不用await关键字，如何确认Task执行完毕了？
+            //#region 实质是在调用awaitable对象的GetResult方法
+            ////*************************************await 实质是在调用awaitable对象的GetResult方法
             //Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
 
-            //var task = Task.Run(() =>
-            //{
-            //    Console.WriteLine("Task.Run currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //    return GetNameV4();
-            //});
+            //TestV5();
 
-            //task.GetAwaiter().OnCompleted(() =>
-            //{
-            //    Console.WriteLine("task.GetAwaiter().OnCompleted currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //    var name = task.Result;
-            //    Console.WriteLine("My name is {0} currentThreadId={1}  {2}", name, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //});
-
-            //Console.WriteLine("Mian End {0}", DateTime.Now.ToString("mm:ss.ffff"));
-
-            ////*********************************
-            #endregion
-
-            #region Task如何让主线程挂起等待
-            //*************************************Task如何让主线程挂起等待？
-            //Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //var task = Task.Run(() => {
-            //    Console.WriteLine("Task.Run currentThreadId={0}  {1}", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-            //    return GetNameV4();
-            //});
-            //var rtnStr=task.GetAwaiter().GetResult();
-            //Console.WriteLine("rtnStr={0} currentThreadId={1}  {2}", rtnStr, Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
             //Console.WriteLine("Mian End 主线程执行完毕 {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            //*********************************
-            #endregion
-
-            #region 实质是在调用awaitable对象的GetResult方法
-            //*************************************await 实质是在调用awaitable对象的GetResult方法
-            Console.WriteLine("Main Thread Id: {0}  {1} \r\n ", Thread.CurrentThread.ManagedThreadId, DateTime.Now.ToString("mm:ss.ffff"));
-
-            TestV5();
-
-            Console.WriteLine("Mian End 主线程执行完毕 {0}", DateTime.Now.ToString("mm:ss.ffff"));
-            //*********************************
-            #endregion
+            ////*********************************
+            //#endregion
 
 
             #endregion
 
+            #region willick依赖注入
+            ////v1.0
+            //IKernel  ninjectKernel=new StandardKernel();
+            //ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //IValueCalculator InjectExample = ninjectKernel.Get<IValueCalculator>();
+            //var cart=new ShoppingCart(InjectExample);
+            //Console.WriteLine("total={0:c}",cart.CalculateStockValue());
 
-            Console.ReadLine();
+            //v2.0
+            //IKernel ninjectKernel = new StandardKernel();
+            //ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //ninjectKernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>();
+            //IValueCalculator injectExample = ninjectKernel.Get<IValueCalculator>();
+            //var cart = new ShoppingCart(injectExample);
+            //Console.WriteLine("total={0:c}", cart.CalculateStockValue());
+
+            ////v3.0 指定值
+            //IKernel ninjectKernel = new StandardKernel();
+            //ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //ninjectKernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithPropertyValue("DiscountSize", 3M);
+            //IValueCalculator injectExample = ninjectKernel.Get<IValueCalculator>();
+            //var cart = new ShoppingCart(injectExample);
+            //Console.WriteLine("total={0:c}", cart.CalculateStockValue());
+
+            ////v4.0 自我绑定
+            //IKernel ninjectKernel = new StandardKernel();
+            //ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //ninjectKernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithPropertyValue("DiscountSize", 3M);
+            ////var cart = ninjectKernel.Get<ShoppingCart>();
+            //ninjectKernel.Bind<ShoppingCart>().ToSelf();
+            //var cart = ninjectKernel.Get<ShoppingCart>();
+            //Console.WriteLine("total={0:c}", cart.CalculateStockValue());
+
+            ////v5.0 派生类绑定
+            //IKernel ninjectKernel = new StandardKernel();
+            //ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            //ninjectKernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithPropertyValue("DiscountSize", 3M);
+            ////ninjectKernel.Bind<LimitShoppingCart>().ToSelf().WithPropertyValue("ItemLimit", 4M);
+            ////var cart = ninjectKernel.Get<LimitShoppingCart>();
+            //ninjectKernel.Bind<ShoppingCart>().To<LimitShoppingCart>().WithPropertyValue("ItemLimit", 4M);
+            //var cart = ninjectKernel.Get<ShoppingCart>();
+            //Console.WriteLine("total={0:c}", cart.CalculateStockValue());
+
+            //v6.0 条件绑定
+            IKernel ninjectKernel = new StandardKernel();
+            ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            ninjectKernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>().WithPropertyValue("DiscountSize", 3M);
+            ninjectKernel.Bind<ShoppingCart>().To<LimitShoppingCart>().WithPropertyValue("ItemLimit", 4M);
+            ninjectKernel.Bind<IValueCalculator>().To<IterativeValueCalculator>().WhenInjectedInto<LimitShoppingCart>();
+            var cart = ninjectKernel.Get<ShoppingCart>();
+            Console.WriteLine("total={0:c}", cart.CalculateStockValue());
+            #endregion
+
+
+            Console.ReadKey();
         }
+
+        #region jesse2013异步编程系列_方法
 
         #region 方法-await 实质是在调用awaitable对象的GetResult方法
         //*************************************await 实质是在调用awaitable对象的GetResult方法
@@ -442,5 +499,9 @@ namespace SomeTests
         //}
         //*********************************
         #endregion
+
+        #endregion
+
+
     }
 }
